@@ -118,6 +118,30 @@ export const accommodation = {
       body: "Guidance with cooking, laundry and budgeting; encouragement to attend education or work; help finding information about health, benefits and housing.",
     },
   ],
+  /**
+   * The four homes, shown by AREA ONLY. Supplied by the site owner 11 Nov 2026.
+   * SAFEGUARDING: never add house numbers, street names or full postcodes here
+   * (this repository is public). Full addresses are shared with referring
+   * professionals during the referral process.
+   */
+  homes: {
+    eyebrow: "Our homes",
+    title: "Four homes in West London and Surrey.",
+    lead: "Three of our homes are in the London Borough of Hounslow and one is in Stanwell, Surrey, all close to transport links, colleges and local services.",
+    areas: [
+      { area: "Hounslow", council: "London Borough of Hounslow", district: "TW3" },
+      { area: "Bedfont, Feltham", council: "London Borough of Hounslow", district: "TW14" },
+      { area: "Isleworth", council: "London Borough of Hounslow", district: "TW7" },
+      { area: "Stanwell", council: "Spelthorne Borough Council, Surrey", district: "TW19" },
+    ],
+    privacy:
+      "To protect the young people who live with us, we don't publish our full addresses. We share them with referring professionals as part of the referral process.",
+    lead_flag: {
+      value: true,
+      status: "placeholder",
+      note: "'Close to transport links, colleges and local services' is new wording. Client to confirm or edit.",
+    } satisfies Flagged<boolean>,
+  },
   emergency: {
     title: "Emergency placements",
     body: "We can offer respite, or accommodate a young person in an emergency, if it's judged suitable for them. All paperwork and risk assessments need to be received on arrival, so we can confirm suitability and safeguard the other young people living with us.",

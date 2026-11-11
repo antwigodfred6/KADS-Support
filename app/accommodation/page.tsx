@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AlertCircle, Phone } from "lucide-react";
+import { AlertCircle, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { ArchFrame } from "@/components/art/arch-frame";
 import { IconBadge } from "@/components/brand/icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
 });
 
 export default function AccommodationPage() {
-  const { hero, types, features, emergency } = accommodation;
+  const { hero, types, features, homes, emergency } = accommodation;
   return (
     <>
       <HeroPanel eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "Accommodation", href: routes.accommodation }]} scene="doorKey" image={hero.image}>
@@ -59,6 +59,46 @@ export default function AccommodationPage() {
             </RevealItem>
           ))}
         </RevealGroup>
+      </Section>
+
+      <Section tone="deep" labelledBy="homes-title" className="py-16 md:py-24 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <Reveal className="lg:col-span-5">
+            <Eyebrow>{homes.eyebrow}</Eyebrow>
+            <h2 id="homes-title" className="text-h2">
+              {homes.title}
+            </h2>
+            <p className="mt-5 text-lead text-slate">
+              {homes.lead}
+              <ContentFlag status={homes.lead_flag.status} note={homes.lead_flag.note} />
+            </p>
+          </Reveal>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <RevealGroup className="grid gap-3 sm:grid-cols-2">
+              {homes.areas.map((h) => (
+                <RevealItem key={h.district} className="flex h-full items-start gap-4 rounded-(--radius-card) border border-line bg-white p-5">
+                  <span aria-hidden="true" className="grid size-11 shrink-0 place-items-center rounded-full bg-orange-100 text-orange-700">
+                    <MapPin className="size-5" strokeWidth={1.75} />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-lg font-bold">{h.area}</h3>
+                    <p className="text-[0.95rem] text-slate">{h.council}</p>
+                    <p className="mt-1 text-sm font-semibold tracking-wide text-teal-600 tabular-nums">{h.district}</p>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+            <Reveal delay={0.1} className="mt-4 flex items-start gap-3 rounded-(--radius-card) bg-mist p-5 text-[0.95rem] text-ink">
+              <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-teal-600" strokeWidth={1.75} />
+              <p>
+                {homes.privacy}{" "}
+                <Link href={routes.referrals} className="font-semibold text-teal-600 underline underline-offset-4">
+                  How referrals work
+                </Link>
+              </p>
+            </Reveal>
+          </div>
+        </div>
       </Section>
 
       <Section tone="mist" arch labelledBy="features-title">

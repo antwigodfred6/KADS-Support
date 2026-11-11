@@ -5,7 +5,7 @@ export const site = {
   name: "KADS Support",
   tagline: "Supported accommodation, training and guidance for young people aged 16+",
   description:
-    "KADS Support provides semi-independent supported accommodation, training and employment support, mentoring and advice for young people aged 16 and over in London.",
+    "KADS Support provides semi-independent supported accommodation, training and employment support, mentoring and advice for young people aged 16 and over in West London and Surrey.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kadssupport.com").replace(/\/$/, ""),
 
   legalName: {
@@ -30,9 +30,9 @@ export const site = {
     source: "/about-dacs/",
   } satisfies Flagged<string>,
   area: {
-    value: "London",
-    status: "confirm",
-    note: "Old site mentions London (mentoring). Which boroughs are served?",
+    value: "Hounslow and Stanwell",
+    status: "verified",
+    note: "Four homes supplied by the site owner on 11 Nov 2026: three in LB Hounslow, one in Stanwell (Spelthorne, Surrey). Area only; never publish full addresses.",
   } satisfies Flagged<string>,
   staffed247: {
     value: true,
