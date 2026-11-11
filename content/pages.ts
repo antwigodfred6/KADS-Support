@@ -130,7 +130,19 @@ export const accommodation = {
     lead: "Three of our homes are in the London Borough of Hounslow and one is in Stanwell, Surrey, all close to transport links, colleges and local services.",
     // What each home offers: supplied by the site owner, 11 Nov 2026
     areas: [
-      { area: "Hounslow", council: "London Borough of Hounslow", district: "TW3", offer: "3 parent-and-child units" },
+      {
+        area: "Hounslow",
+        council: "London Borough of Hounslow",
+        district: "TW3",
+        offer: "3 parent-and-child units",
+        // Real photos supplied by KADS (11 Nov 2026). Never used: a living-room photo showing a baby.
+        // Also skipped: a blurred, tilted shot.
+        photos: [
+          { src: "/images/homes/hounslow-parent-child-room.jpg", width: 676, height: 676, caption: "Parent-and-child room", alt: "A parent-and-child room in the Hounslow home: a double bed with grey paisley bedding beside a white baby cot, with a chest of drawers by the window" },
+          { src: "/images/homes/hounslow-bedroom.jpg", width: 900, height: 900, caption: "Bedroom", alt: "A bright bedroom in the Hounslow home with a white wardrobe, wood-effect floor and a bed with pink paisley bedding" },
+          { src: "/images/homes/hounslow-bedroom-2.jpg", width: 676, height: 676, caption: "Bedroom", alt: "A neatly made double bed with cream floral bedding and a white bedside table in the Hounslow home" },
+        ],
+      },
       {
         area: "Bedfont, Feltham",
         council: "London Borough of Hounslow",
@@ -138,12 +150,25 @@ export const accommodation = {
         offer: "Two-bedroom house",
         // Real photos supplied by KADS (11 Nov 2026). Kitchen window glass blurred to remove reflections.
         photos: [
-          { src: "/images/homes/feltham-bedroom.jpg", caption: "Bedroom", alt: "A bedroom in the Feltham home: a double bed with a white floral duvet, beige sheets and grey curtains" },
-          { src: "/images/homes/feltham-kitchen.jpg", caption: "Kitchen", alt: "The kitchen in the Feltham home: white cupboards, a gas hob, sink, washing machine and a wooden dining table on a tiled floor" },
+          { src: "/images/homes/feltham-bedroom.jpg", width: 720, height: 900, caption: "Bedroom", alt: "A bedroom in the Feltham home: a double bed with a white floral duvet, beige sheets and grey curtains" },
+          { src: "/images/homes/feltham-kitchen.jpg", width: 720, height: 900, caption: "Kitchen", alt: "The kitchen in the Feltham home: white cupboards, a gas hob, sink, washing machine and a wooden dining table on a tiled floor" },
         ],
       },
       { area: "Isleworth", council: "London Borough of Hounslow", district: "TW7", offer: "Studio flat" },
-      { area: "Stanwell", council: "Spelthorne Borough Council, Surrey", district: "TW19", offer: "4 rooms, all en-suite" },
+      {
+        area: "Stanwell",
+        council: "Spelthorne Borough Council, Surrey",
+        district: "TW19",
+        offer: "4 rooms, all en-suite",
+        // Real photos supplied by KADS (11 Nov 2026). Skipped: a bedroom with a street view from the window,
+        // a bathroom mirror showing the photographer, and a cluttered kitchen shot.
+        photos: [
+          { src: "/images/homes/stanwell-bedroom.jpg", width: 900, height: 900, caption: "Bedroom", alt: "A bedroom in the Stanwell home: a double bed with grey and white bedding, an orange towel and a tall black wardrobe" },
+          { src: "/images/homes/stanwell-ensuite-shower.jpg", width: 900, height: 900, caption: "En-suite shower", alt: "An en-suite shower with a glass door, grey tiles and a large rainfall shower head" },
+          { src: "/images/homes/stanwell-ensuite-basin.jpg", width: 900, height: 900, caption: "En-suite", alt: "An en-suite with a toilet, basin with cupboard below and a chrome heated towel rail, in grey tiles" },
+          { src: "/images/homes/stanwell-kitchen.jpg", width: 900, height: 900, caption: "Kitchen", alt: "The kitchen in the Stanwell home: glossy white cupboards, black worktops, a gas hob and a red-brick splashback" },
+        ],
+      },
     ],
     privacy:
       "To protect the young people who live with us, we don't publish our full addresses. We share them with referring professionals as part of the referral process.",

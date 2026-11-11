@@ -94,7 +94,7 @@ export default function AccommodationPage() {
                     <p className="mt-1 text-sm font-semibold tracking-wide text-teal-600 tabular-nums">{h.district}</p>
                   </div>
                   {"photos" in h && h.photos ? (
-                    <ul className="grid w-full grid-cols-2 gap-2 sm:ml-auto sm:max-w-72">
+                    <ul className={cn("grid w-full gap-2 sm:ml-auto", h.photos.length === 3 ? "grid-cols-3 sm:max-w-[27rem]" : "grid-cols-2 sm:max-w-80")}>
                       {h.photos.map((ph) => (
                         <li key={ph.src}>
                           <a
@@ -106,10 +106,10 @@ export default function AccommodationPage() {
                             <Image
                               src={ph.src}
                               alt={ph.alt}
-                              width={720}
-                              height={900}
-                              sizes="(min-width: 640px) 144px, 45vw"
-                              className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover/photo:scale-[1.04]"
+                              width={ph.width}
+                              height={ph.height}
+                              sizes="(min-width: 640px) 160px, 45vw"
+                              className="aspect-square w-full object-cover transition-transform duration-500 group-hover/photo:scale-[1.04]"
                             />
                             <span className="sr-only"> (view larger photo, opens in a new tab)</span>
                           </a>
