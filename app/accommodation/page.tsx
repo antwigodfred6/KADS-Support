@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AlertCircle, Phone } from "lucide-react";
+import { ArchFrame } from "@/components/art/arch-frame";
 import { IconBadge } from "@/components/brand/icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -24,28 +25,40 @@ export default function AccommodationPage() {
   const { hero, types, features, emergency } = accommodation;
   return (
     <>
-      <HeroPanel eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "Accommodation", href: routes.accommodation }]} scene="doorKey">
+      <HeroPanel eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "Accommodation", href: routes.accommodation }]} scene="doorKey" image={hero.image}>
         <Button asChild variant="accent">
           <Link href={routes.referrals}>How to refer</Link>
         </Button>
       </HeroPanel>
 
       <Section labelledBy="types-title" className="pt-4 md:pt-8 lg:pt-8">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          <Reveal className="lg:col-span-4">
-            <h2 id="types-title" className="text-h2">
-              The accommodation we offer.
-            </h2>
-          </Reveal>
-          <RevealGroup className="grid gap-4 sm:grid-cols-3 lg:col-span-8">
-            {types.map((t) => (
-              <RevealItem key={t.title} className="flex items-center gap-4 rounded-(--radius-card) border border-line bg-white p-5">
+        <Reveal className="max-w-2xl">
+          <h2 id="types-title" className="text-h2">
+            The accommodation we offer.
+          </h2>
+        </Reveal>
+        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3">
+          {types.map((t) => (
+            <RevealItem key={t.title} className="group flex h-full flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white">
+              <ArchFrame
+                image={t.image}
+                shape="card"
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="aspect-[4/3] w-full rounded-none [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-(--ease-out-soft) group-hover:[&_img]:scale-[1.03]"
+              />
+              <div className="flex flex-1 items-start gap-4 p-6">
                 <IconBadge name={t.icon} />
-                <span className="font-display font-semibold">{t.title}</span>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </div>
+                <div>
+                  <h3 className="text-h3">
+                    {t.title}
+                    {"flag" in t && t.flag ? <ContentFlag status={t.flag.status} note={t.flag.note} /> : null}
+                  </h3>
+                  <p className="mt-2 text-slate">{t.body}</p>
+                </div>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </Section>
 
       <Section tone="mist" arch labelledBy="features-title">
@@ -61,7 +74,7 @@ export default function AccommodationPage() {
             <RevealItem
               key={f.title}
               className={cn(
-                "rounded-(--radius-card) p-7 md:p-8",
+                "flex flex-col rounded-(--radius-card) p-7 md:p-8",
                 i === 0 && "bg-navy text-paper md:col-span-3 md:row-span-2",
                 i === 1 && "bg-white md:col-span-3",
                 i === 2 && "bg-white md:col-span-3",
@@ -70,8 +83,16 @@ export default function AccommodationPage() {
                 i === 5 && "bg-white md:col-span-2"
               )}
             >
+              {"image" in f && f.image ? (
+                <ArchFrame
+                  image={f.image}
+                  shape="card"
+                  sizes={i === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 100vw"}
+                  className={cn("-mx-2 -mt-2 mb-6 aspect-[4/3] md:-mx-3 md:-mt-3", i === 0 ? "md:aspect-auto md:min-h-72 md:flex-1" : "md:aspect-[16/9]")}
+                />
+              ) : null}
               <IconBadge name={f.icon} tone={i === 0 ? "dark" : i === 3 ? "orange" : "mist"} />
-              <h3 className={cn("mt-6 text-h3", i === 0 && "text-paper lg:mt-24 lg:text-h2")}>
+              <h3 className={cn("mt-6 text-h3", i === 0 && "text-paper lg:text-h2")}>
                 {f.title}
                 {"flag" in f && f.flag ? <ContentFlag status={f.flag.status} note={f.flag.note} /> : null}
               </h3>

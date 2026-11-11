@@ -1,4 +1,14 @@
 import type { Flagged, IconName } from "./types";
+import type { SiteImage } from "@/components/art/arch-frame";
+
+/** AI-generated illustrative photos (Runway, 11 Nov 2026). Not KADS properties: each shows an "Illustrative image" label. */
+const ai = (file: string, alt: string, width = 1600, height = 1200): SiteImage => ({
+  src: `/images/accommodation/${file}`,
+  alt,
+  width,
+  height,
+  illustrative: true,
+});
 
 /**
  * Page copy. Rewritten from the old site for clarity; every factual claim is
@@ -39,25 +49,46 @@ export const accommodation = {
     title: "Somewhere safe to settle, and to grow.",
     lead: "KADS Support offers a nurturing, therapeutic environment where young people can feel safe and comfortable in their surroundings.",
     source: "/our-services/",
+    image: ai("hero-front-door.jpg", "The navy front door of a London terraced house, open onto a warmly lit hallway, with a key in the lock", 2400, 1340),
   },
   types: [
-    { title: "Shared accommodation", icon: "users" as IconName },
-    { title: "Stand-alone units", icon: "home" as IconName },
-    { title: "24-hour support units", icon: "clock" as IconName },
+    {
+      title: "Shared accommodation",
+      icon: "users" as IconName,
+      body: "A shared house with your own room, and a living room, kitchen and dining space in common.",
+      image: ai("shared-living-room.jpg", "A bright shared living room with two sofas, a dining table and shelves of books and games"),
+    },
+    {
+      title: "Stand-alone units",
+      icon: "home" as IconName,
+      body: "A self-contained space for young people ready for more independence, with support close by.",
+      image: ai("studio-flat.jpg", "A compact studio flat with a small kitchenette, a table for two and a neatly made bed"),
+      flag: { value: true, status: "placeholder", note: "Short description written for the new site. Client to confirm what a stand-alone unit includes." } satisfies Flagged<boolean>,
+    },
+    {
+      title: "24-hour support units",
+      icon: "clock" as IconName,
+      body: "Accommodation with staff on hand around the clock, for young people who need more support.",
+      image: ai("staff-office-evening.jpg", "A calm staff office in the evening, with a desk lamp, a notebook and a mug of tea"),
+      flag: { value: true, status: "placeholder", note: "Short description written for the new site. Client to confirm how 24-hour support units work." } satisfies Flagged<boolean>,
+    },
   ],
   features: [
     {
       title: "Their own space",
+      image: ai("own-bedroom.jpg", "A personalised bedroom with a single bed, art prints, fairy lights, plants and a small desk"),
       icon: "sofa" as IconName,
       body: "Their own bedroom and storage, with a say in the décor so it can feel like theirs.",
     },
     {
       title: "Security and privacy",
+      image: ai("key-in-door.jpg", "A hand turning a key in a bedroom door lock, with a small orange tag on the keyring"),
       icon: "lock" as IconName,
       body: "Every bedroom is secure, and each young person has their own key to keep their privacy and belongings safe.",
     },
     {
       title: "Shared amenities",
+      image: ai("shared-kitchen.jpg", "A clean shared kitchen with a cooker and fruit bowl, and a washing machine and dryer in the utility area beyond"),
       icon: "home" as IconName,
       body: "A shared living room, a kitchen with food and full cooking facilities, a dining room, bathroom facilities, and a washing machine and tumble dryer.",
       flag: {

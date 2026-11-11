@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "cn";
-import { ArchFrame } from "@/components/art/arch-frame";
+import { ArchFrame, type SiteImage } from "@/components/art/arch-frame";
 import type { SceneName } from "@/components/art/scenes";
 import { site } from "@/content/site";
 import { JsonLd } from "@/lib/seo";
@@ -83,7 +83,7 @@ export function HeroSplit({ eyebrow, title, lead, trail, scene, children }: Base
 }
 
 /** Panel: full-width illustration band with a navy text panel overlapping it. */
-export function HeroPanel({ eyebrow, title, lead, trail, scene, children }: BaseProps & { scene: SceneName }) {
+export function HeroPanel({ eyebrow, title, lead, trail, scene, image, children }: BaseProps & { scene: SceneName; image?: SiteImage }) {
   return (
     <section aria-labelledby="page-title" className="relative pt-8 pb-16 md:pb-24">
       <div className="container-site">
@@ -91,6 +91,9 @@ export function HeroPanel({ eyebrow, title, lead, trail, scene, children }: Base
         <div className="relative grid lg:grid-cols-12">
           <ArchFrame
             scene={scene}
+            image={image}
+            sizes="(min-width: 1024px) 75vw, 100vw"
+            labelPosition="top"
             shape="rounded"
             priority
             className="animate-rise aspect-[4/3] w-full sm:aspect-[16/8] lg:col-span-9 lg:col-start-4 lg:my-12 lg:aspect-[16/8]"
