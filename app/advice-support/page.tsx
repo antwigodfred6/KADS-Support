@@ -1,3 +1,4 @@
+import { ArchFrame } from "@/components/art/arch-frame";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
 import { HeroSoft } from "@/components/sections/page-hero";
@@ -20,7 +21,7 @@ export default function AdvicePage() {
   const { hero, counselling, mentoring } = advice;
   return (
     <>
-      <HeroSoft eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "Advice & Support", href: routes.advice }]} scene="conversation">
+      <HeroSoft eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "Advice & Support", href: routes.advice }]} scene="conversation" image={hero.image}>
         <div className="flex flex-wrap gap-x-8">
           <ArrowLink href="#counselling">1:1 counselling</ArrowLink>
           <ArrowLink href="#mentoring">Mentoring programme</ArrowLink>
@@ -36,6 +37,7 @@ export default function AdvicePage() {
               <ContentFlag status={counselling.flag.status} note={counselling.flag.note} />
             </h2>
             <p className="mt-5 text-lead text-slate">{counselling.lead}</p>
+            <ArchFrame image={counselling.image} shape="rounded" sizes="(min-width: 1024px) 40vw, 100vw" className="mt-8 aspect-[4/3] w-full" />
           </Reveal>
           <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
             <p className="font-display font-semibold">{counselling.topicsIntro}</p>
@@ -67,14 +69,19 @@ export default function AdvicePage() {
       </Section>
 
       <Section id="mentoring" tone="ink" labelledBy="mentoring-title">
-        <Reveal className="max-w-3xl">
-          <Eyebrow onDark>Mentoring · ages 16–22</Eyebrow>
-          <h2 id="mentoring-title" className="text-h2">
-            {mentoring.title}
-          </h2>
-          <p className="mt-5 text-lead text-on-dark-muted">{mentoring.lead}</p>
-          <p className="mt-4 text-on-dark-muted">{mentoring.intro}</p>
-        </Reveal>
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <Reveal className="lg:col-span-7">
+            <Eyebrow onDark>Mentoring · ages 16–22</Eyebrow>
+            <h2 id="mentoring-title" className="text-h2">
+              {mentoring.title}
+            </h2>
+            <p className="mt-5 text-lead text-on-dark-muted">{mentoring.lead}</p>
+            <p className="mt-4 text-on-dark-muted">{mentoring.intro}</p>
+          </Reveal>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <ArchFrame image={mentoring.image} shape="arch" sizes="(min-width: 1024px) 35vw, 100vw" className="mx-auto aspect-[4/5] w-full max-w-md lg:aspect-[4/5]" />
+          </Reveal>
+        </div>
         <ol className="mt-14 grid gap-px overflow-hidden rounded-(--radius-card) bg-paper/15 md:grid-cols-3">
           {mentoring.stages.map((s, i) => (
             <Reveal as="li" key={s.title} delay={i * 0.1} className="bg-ink p-8 md:p-10">

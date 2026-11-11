@@ -153,7 +153,7 @@ export function HeroType({ eyebrow, lines, lead, trail, image, children }: Omit<
 }
 
 /** Soft: calm tinted hero for sensitive topics. */
-export function HeroSoft({ eyebrow, title, lead, trail, scene, children }: BaseProps & { scene: SceneName }) {
+export function HeroSoft({ eyebrow, title, lead, trail, scene, image, children }: BaseProps & { scene: SceneName; image?: SiteImage }) {
   return (
     <section aria-labelledby="page-title" className="relative bg-mist pt-8 pb-16 md:pb-24">
       <div className="container-site grid items-end gap-12 lg:grid-cols-12">
@@ -169,7 +169,7 @@ export function HeroSoft({ eyebrow, title, lead, trail, scene, children }: BaseP
           {children && <div className="animate-rise mt-9 [animation-delay:240ms]">{children}</div>}
         </div>
         <div className="lg:col-span-4 lg:col-start-9">
-          <ArchFrame scene={scene} animate priority shape="rounded" className="mx-auto aspect-square w-full max-w-xs rounded-full lg:max-w-none" />
+          <ArchFrame scene={scene} image={image} sizes="(min-width: 1024px) 30vw, 320px" animate priority shape="rounded" className="mx-auto aspect-square w-full max-w-xs rounded-full lg:max-w-none" />
         </div>
       </div>
     </section>

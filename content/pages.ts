@@ -272,9 +272,11 @@ export const advice = {
     title: "Someone in your corner.",
     lead: "Constructive advice and support are the cornerstone of personal development. We make sure young people get professional advice, so they have the knowledge and support to grow.",
     source: "/support-programs/",
+    image: ai("hero-support-room.jpg", "A calm, sunlit room with two armchairs turned towards each other and two mugs of tea on a low table", 1200, 1200, "advice"),
   },
   counselling: {
     title: "1:1 counselling",
+    image: ai("counselling.jpg", "Two people's hands across a small table during a quiet conversation, one holding a mug of tea and the other a notebook", 1600, 1200, "advice"),
     lead: "Our one-to-one counselling service aims to promote good mental health and wellbeing, in a confidential and safe setting.",
     topicsIntro: "Counselling can help people cope with things like:",
     topics: [
@@ -296,6 +298,7 @@ export const advice = {
     } satisfies Flagged<boolean>,
   },
   mentoring: {
+    image: ai("mentoring.jpg", "A mentor and a young person seen from behind, walking and talking along a tree-lined park path in autumn", 1600, 1200, "advice"),
     title: "Mentoring programme",
     lead: "We mentor young people aged 16 to 22 in London, helping them take steps towards a positive future and reach their short- and long-term goals.",
     intro:
