@@ -1,0 +1,249 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * KADS Support design tokens
+ * Colours are taken from the existing logo (teal, deep navy, orange).
+ * Contrast ratios are documented in DESIGN_PLAN.md. Keep text colours to
+ * ink / navy / slate / teal-600 / orange-700 on light backgrounds.
+ */
+
+@theme {
+  --color-ink: #0e2a3d;
+  --color-navy: #0b4260;
+  --color-navy-900: #08202f;
+  --color-slate: #3d4f5c;
+  --color-teal-600: #1c6f85;
+  --color-teal-400: #278ca5;
+  --color-teal-200: #a9d3de;
+  --color-orange: #ea924a;
+  --color-orange-700: #a85a1c;
+  --color-orange-100: #fbe6d4;
+  --color-paper: #f7f4ee;
+  --color-paper-deep: #efe9df;
+  --color-mist: #e3eef1;
+  --color-line: #d9d3c8;
+  --color-on-dark-muted: #c9d6de;
+
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --text-display: clamp(2.6rem, 1.5rem + 4.6vw, 5.5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.035em;
+  --text-h1: clamp(2.35rem, 1.6rem + 3.2vw, 4rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.9rem, 1.45rem + 1.8vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: clamp(1.25rem, 1.12rem + 0.5vw, 1.55rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.015em;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+  --text-lead--line-height: 1.6;
+
+  --radius-card: 14px;
+  --radius-field: 10px;
+
+  --shadow-lift: 0 1px 2px rgb(14 42 61 / 0.04), 0 14px 36px -14px rgb(14 42 61 / 0.22);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* shadcn semantic tokens mapped onto the brand palette */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  --background: #f7f4ee;
+  --foreground: #0e2a3d;
+  --card: #ffffff;
+  --card-foreground: #0e2a3d;
+  --popover: #ffffff;
+  --popover-foreground: #0e2a3d;
+  --primary: #0e2a3d;
+  --primary-foreground: #f7f4ee;
+  --secondary: #e3eef1;
+  --secondary-foreground: #0e2a3d;
+  --muted: #efe9df;
+  --muted-foreground: #3d4f5c;
+  --accent: #e3eef1;
+  --accent-foreground: #0e2a3d;
+  --destructive: #b42318;
+  --border: #d9d3c8;
+  --input: #8f877a;
+  --ring: #1c6f85;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-orange-100);
+    color: var(--color-ink);
+  }
+
+  /* One consistent, highly visible focus style (WCAG 2.4.7 / 2.4.13) */
+  :focus-visible {
+    outline: 3px solid var(--color-teal-600);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-orange);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+  }
+  .prose-kads {
+    max-width: 68ch;
+  }
+  .prose-kads > * + * {
+    margin-top: 1.1em;
+  }
+  .prose-kads h2 {
+    font-size: var(--text-h3);
+    line-height: 1.25;
+    margin-top: 2em;
+  }
+  .prose-kads a {
+    color: var(--color-teal-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-kads ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s var(--ease-out-soft);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1.5px;
+  }
+  /* Arched top edge, echoing the rounded heads in the logo */
+  .arch-top {
+    border-top-left-radius: 50% clamp(2.5rem, 8vw, 7rem);
+    border-top-right-radius: 50% clamp(2.5rem, 8vw, 7rem);
+  }
+  .dots {
+    background-image: radial-gradient(rgb(14 42 61 / 0.07) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .dots-dark {
+    background-image: radial-gradient(rgb(247 244 238 / 0.07) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+}
+
+/* CSS-only entrance animations for above-the-fold content.
+   They run before JavaScript hydrates, so nothing is ever blank. */
+@keyframes arch-reveal {
+  from {
+    clip-path: inset(100% 0 0 0 round 999px 999px 14px 14px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 999px 999px 14px 14px);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-rise {
+  animation: rise 0.8s var(--ease-out-soft) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
