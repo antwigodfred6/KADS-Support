@@ -27,8 +27,8 @@ export function MobileNav({ pathname }: { pathname: string }) {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-full max-w-sm gap-0 border-l-0 bg-paper p-0 sm:max-w-sm">
-        <div className="flex h-20 items-center border-b border-line px-6">
-          <Logo />
+        <div className="flex h-24 items-center border-b border-line px-6">
+          <Logo className="h-16" />
         </div>
         <SheetTitle className="sr-only">Menu</SheetTitle>
         <SheetDescription className="sr-only">Site navigation and contact details</SheetDescription>

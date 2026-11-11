@@ -17,7 +17,7 @@ export function CtaBand({
   return (
     <section aria-labelledby="cta-title" className="on-dark relative overflow-hidden bg-ink py-20 text-paper md:py-28">
       <div aria-hidden="true" className="dots-dark absolute inset-0" />
-      <LogoMark className="pointer-events-none absolute -right-16 -bottom-10 h-[22rem] w-auto opacity-[0.12] md:right-[6%] md:h-[30rem]" />
+      <LogoMark tone="dark" className="pointer-events-none absolute -right-16 -bottom-10 h-[22rem] w-auto opacity-[0.12] md:right-[6%] md:h-[30rem]" />
       <div className="container-site relative">
         <Reveal className="max-w-2xl">
           <h2 id="cta-title" className="text-h2 text-paper">

@@ -51,7 +51,7 @@ app/                 Routes (one folder per page), metadata, sitemap, robots, OG
   contact/actions.ts Server action for the contact form
 components/
   art/               Brand illustrations (placeholders for photography) + ArchFrame image slot
-  brand/             Logo (SVG redraw) and icon badge
+  brand/             Logo (client's original artwork) and icon badge
   contact/           Contact form (client component)
   motion/            Reveal helpers and Motion provider (reduced-motion aware)
   sections/          Page heroes, sections, CTA band, related links, holding page
@@ -77,6 +77,18 @@ With `NEXT_PUBLIC_SHOW_CONTENT_FLAGS=true`, unconfirmed items show a small dashe
 ```bash
 grep -rn 'status: "confirm"\|status: "placeholder"' content app
 ```
+
+## Logo
+
+The site uses the client's **original logo artwork** (house outline, three figures, "KADS SUPPORT"), taken from the existing website's PNG (`docs/source-assets/kads-logo-original.png`). It must not be redrawn or restyled. Files in `public/brand/`:
+
+| File | Use |
+|---|---|
+| `kads-logo-on-light.png` | Full logo on light backgrounds (header). White parts recoloured to the logo's slate `#323f48`; nothing else changed |
+| `kads-logo-on-dark.png` | Full logo on dark backgrounds (footer, link preview); the original |
+| `kads-mark-on-light.png` / `kads-mark-on-dark.png` | House and figures only, for small or decorative uses |
+
+`app/icon.png` (favicon) and `app/apple-icon.png` show the house and figures on the logo's slate. If the client supplies a vector file (SVG/AI/EPS), regenerate these from it for sharper print use.
 
 ## Images
 

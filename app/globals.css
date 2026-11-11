@@ -109,7 +109,7 @@
   html {
     @apply font-sans;
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 8rem;
   }
   body {
     @apply bg-paper text-ink antialiased;

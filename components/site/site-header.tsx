@@ -39,11 +39,11 @@ export function SiteHeader() {
       <div
         className={cn(
           "container-site flex items-center justify-between gap-6 transition-[height] duration-300",
-          scrolled ? "h-[4.25rem]" : "h-20 lg:h-24"
+          scrolled ? "h-[4.75rem]" : "h-20 lg:h-28"
         )}
       >
         <Link href={routes.home} className="-m-1 rounded-md p-1">
-          <Logo homeLabel />
+          <Logo homeLabel priority className={cn("w-auto transition-[height] duration-300", scrolled ? "h-[3.75rem]" : "h-16 lg:h-[5.5rem]")} />
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">

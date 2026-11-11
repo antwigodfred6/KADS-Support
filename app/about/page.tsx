@@ -57,7 +57,7 @@ export default function AboutPage() {
           <Reveal className="lg:col-span-5">
             {/* No staff photo is used until one is supplied with consent. */}
             <div className="relative grid aspect-square w-full max-w-sm place-items-center overflow-hidden rounded-full bg-paper-deep">
-              <LogoMark className="h-1/2 w-auto" />
+              <LogoMark className="h-1/2" />
             </div>
           </Reveal>
           <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>

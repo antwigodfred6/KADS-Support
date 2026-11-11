@@ -43,7 +43,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/icon.svg`,
+    logo: `${site.url}/brand/kads-logo-on-light.png`,
     description: site.description,
     telephone: "+44 20 3657 5651",
     email: site.email.display,

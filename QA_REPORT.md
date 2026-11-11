@@ -122,7 +122,7 @@ These are flagged in the UI (dashed "Client to confirm" / "Placeholder" badges, 
 | **Ofsted registration status**: not mentioned anywhere until confirmed | (none) |
 | Privacy policy, cookie statement, safeguarding summary + DSL contact | Holding pages |
 | Approve the accessibility statement draft | /accessibility |
-| Original logo artwork (current one is a redrawn SVG; house outline omitted) | Header, footer, favicon |
+| Vector version of the logo (optional; the site now uses the original PNG artwork) | Print and very large uses |
 | Licensed or own photography (illustrations are placeholders) | All image slots |
 | Zoho app password and the recipient inbox(es) for the contact form | Vercel env vars (README) |
 

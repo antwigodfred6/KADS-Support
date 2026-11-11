@@ -86,7 +86,7 @@ function Hero() {
             aria-hidden="true"
             className="animate-rise absolute -bottom-6 -left-4 flex items-center gap-3 rounded-full bg-white py-3 pr-5 pl-3 shadow-lift [animation-delay:600ms] sm:-left-8"
           >
-            <LogoMark className="h-9 w-auto" />
+            <LogoMark className="h-9" />
             <span className="font-display text-sm font-semibold text-ink">A personalised plan for every young person</span>
           </div>
         </div>

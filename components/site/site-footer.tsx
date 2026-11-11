@@ -12,7 +12,7 @@ export function SiteFooter() {
     <footer className="on-dark bg-navy-900 text-on-dark-muted">
       <div className="container-site grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-20">
         <div>
-          <Logo tone="dark" />
+          <Logo tone="dark" className="h-24" />
           <p className="mt-5 max-w-xs">{site.tagline}.</p>
           <ul className="mt-6 space-y-1">
             <li>
