@@ -82,7 +82,8 @@ export default function AccommodationPage() {
                   </span>
                   <div className="min-w-0">
                     <h3 className="font-display text-lg font-bold">{h.area}</h3>
-                    <p className="text-[0.95rem] text-slate">{h.council}</p>
+                    <p className="mt-1 font-display font-semibold text-ink">{h.offer}</p>
+                    <p className="mt-1 text-[0.95rem] text-slate">{h.council}</p>
                     <p className="mt-1 text-sm font-semibold tracking-wide text-teal-600 tabular-nums">{h.district}</p>
                   </div>
                 </RevealItem>

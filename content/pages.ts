@@ -128,11 +128,12 @@ export const accommodation = {
     eyebrow: "Our homes",
     title: "Four homes in West London and Surrey.",
     lead: "Three of our homes are in the London Borough of Hounslow and one is in Stanwell, Surrey, all close to transport links, colleges and local services.",
+    // What each home offers: supplied by the site owner, 11 Nov 2026
     areas: [
-      { area: "Hounslow", council: "London Borough of Hounslow", district: "TW3" },
-      { area: "Bedfont, Feltham", council: "London Borough of Hounslow", district: "TW14" },
-      { area: "Isleworth", council: "London Borough of Hounslow", district: "TW7" },
-      { area: "Stanwell", council: "Spelthorne Borough Council, Surrey", district: "TW19" },
+      { area: "Hounslow", council: "London Borough of Hounslow", district: "TW3", offer: "3 parent-and-child units" },
+      { area: "Bedfont, Feltham", council: "London Borough of Hounslow", district: "TW14", offer: "Two-bedroom house" },
+      { area: "Isleworth", council: "London Borough of Hounslow", district: "TW7", offer: "Studio flat" },
+      { area: "Stanwell", council: "Spelthorne Borough Council, Surrey", district: "TW19", offer: "4 rooms, all en-suite" },
     ],
     privacy:
       "To protect the young people who live with us, we don't publish our full addresses. We share them with referring professionals as part of the referral process.",
