@@ -93,7 +93,6 @@ export function HeroPanel({ eyebrow, title, lead, trail, scene, image, children 
             scene={scene}
             image={image}
             sizes="(min-width: 1024px) 75vw, 100vw"
-            labelPosition="top"
             shape="rounded"
             priority
             className="animate-rise aspect-[4/3] w-full sm:aspect-[16/8] lg:col-span-9 lg:col-start-4 lg:my-12 lg:aspect-[16/8]"

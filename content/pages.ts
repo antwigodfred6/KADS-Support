@@ -1,7 +1,11 @@
 import type { Flagged, IconName } from "./types";
 import type { SiteImage } from "@/components/art/arch-frame";
 
-/** AI-generated illustrative photos (Runway, 11 Nov 2026). Not KADS properties: each shows an "Illustrative image" label. */
+/**
+ * AI-generated photos (Runway, 11 Nov 2026). These are NOT KADS properties.
+ * The visible "Illustrative image" label was removed at KADS's request (11 Nov 2026);
+ * `illustrative: true` is kept so they can be found and replaced with real photos.
+ */
 const ai = (file: string, alt: string, width = 1600, height = 1200): SiteImage => ({
   src: `/images/accommodation/${file}`,
   alt,

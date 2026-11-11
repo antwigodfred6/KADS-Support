@@ -7,7 +7,10 @@ export type SiteImage = {
   alt: string;
   width: number;
   height: number;
-  /** AI-generated or stock: shows an "Illustrative image" label so it isn't mistaken for a KADS home */
+  /**
+   * Records that the image is AI-generated or stock (not a KADS home), for the site's own records.
+   * Not shown on the page: KADS chose on 11 Nov 2026 to remove the visible "Illustrative image" label.
+   */
   illustrative?: boolean;
 };
 
@@ -25,7 +28,6 @@ export function ArchFrame({
   priority,
   animate = false,
   sizes = "(min-width: 1024px) 40vw, 90vw",
-  labelPosition = "bottom",
 }: {
   scene?: SceneName;
   image?: SiteImage;
@@ -35,8 +37,6 @@ export function ArchFrame({
   /** CSS-only entrance (runs before hydration, respects reduced motion) */
   animate?: boolean;
   sizes?: string;
-  /** Where the "Illustrative image" label sits; use "top" when something overlaps the bottom */
-  labelPosition?: "top" | "bottom";
 }) {
   const Scene = scenes[scene];
   return (
@@ -61,11 +61,6 @@ export function ArchFrame({
             sizes={sizes}
             className="size-full object-cover"
           />
-          {image.illustrative && (
-            <span className={cn("absolute right-2.5 rounded-full", labelPosition === "top" ? "top-2.5" : "bottom-2.5", "bg-ink/75 px-2.5 py-1 font-sans text-[0.7rem] font-medium tracking-wide text-paper backdrop-blur-sm")}>
-              Illustrative image
-            </span>
-          )}
         </>
       ) : (
         <Scene className="size-full" />
