@@ -90,24 +90,44 @@ Use only photos the client owns or has licensed, and get consent for anyone iden
 
 ## Contact form
 
-**The form is not connected to any mailbox.** This is deliberate. No email provider has been chosen and no recipient has been confirmed (see AUDIT.md §6).
+The form sends through KADS Support's existing **Zoho Mail (EU)** mailbox over authenticated SMTP (`lib/mailer.ts`, using nodemailer). **It is switched off until the settings below are added in Vercel.** Until then, visitors are told plainly that online messages aren't switched on and are shown the phone number and email. **It never shows a fake success.**
 
-- In production (`CONTACT_DELIVERY` unset) the form validates input, then tells the visitor plainly that online messages aren't switched on and shows the phone number and email. **It never shows a fake success.**
-- In development, `CONTACT_DELIVERY=log` lets you test the flow. The success message says clearly that nothing was sent, and only metadata is logged (no names, emails or message text).
-- Anti-spam: honeypot field, minimum fill time and a basic per-IP rate limit. Before launch, add **Cloudflare Turnstile** (free; needs keys).
+How it behaves:
+- Each enquiry arrives as an email from "KADS Support website", with **Reply-To set to the visitor**, so staff can simply press Reply.
+- Referrals can go to a separate inbox (`CONTACT_REFERRAL_TO_EMAIL`); otherwise everything goes to `CONTACT_TO_EMAIL`.
+- Visitor input is HTML-escaped and stripped of line breaks in headers.
+- If Zoho can't be reached, the visitor is told their message was **not** sent, and what they typed is kept. Logs record only the error code, never names, emails or message text.
+- Anti-spam: honeypot field, minimum fill time and a basic per-IP rate limit. Cloudflare Turnstile is a recommended addition before launch.
 
-To connect it (after the client approves a provider and recipient), add a delivery mode in `lib/mailer.ts`. Suggested options: **Resend** (simple API, UK/EU-friendly) or the client's existing **Zoho** mailbox over SMTP. Keep keys in Vercel environment variables only.
+### Switching it on (needs the client's Zoho admin)
+
+1. In **Zoho Mail**, choose the mailbox that will send the email (e.g. `info@` or a dedicated `website@kadssupport.com`).
+2. Turn on two-factor authentication for that mailbox if it isn't already, then create an **app-specific password**: Zoho Accounts → Security → App Passwords → "Generate new password", named "KADS website".
+3. In **Vercel → kads-support → Settings → Environment Variables**, add these for **Production** (and Preview only if you want previews to send real email). Mark `ZOHO_SMTP_PASS` as **Sensitive**:
+
+| Variable | Value |
+|---|---|
+| `CONTACT_DELIVERY` | `zoho` |
+| `ZOHO_SMTP_USER` | the sending mailbox address |
+| `ZOHO_SMTP_PASS` | the app-specific password (secret) |
+| `CONTACT_TO_EMAIL` | the inbox that should receive enquiries |
+| `CONTACT_REFERRAL_TO_EMAIL` | optional, separate inbox for referrals |
+
+4. Redeploy, then send one real test message from the live site and check that it arrives (and isn't in spam).
+5. **Fix SPF first, or at the same time** (see MIGRATION.md §4): kadssupport.com's SPF record currently authorises Hostinger only, not Zoho. Mail Zoho sends may be marked as spam until `include:zoho.eu` is added. That's a DNS change and needs the client's approval.
+
+Never put the password in the code, in `.env.example`, or in a `NEXT_PUBLIC_` variable.
 
 ## Environment variables
 
-See `.env.example`. None are secret today.
+See `.env.example`. Only `ZOHO_SMTP_PASS` is secret: keep it in Vercel, marked Sensitive.
 
 | Variable | Preview | Production (after approval) |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Vercel preview URL | `https://kadssupport.com` |
 | `NEXT_PUBLIC_SHOW_CONTENT_FLAGS` | `true` | `false` |
 | `ALLOW_INDEXING` | unset (robots.txt blocks all) | `true` |
-| `CONTACT_DELIVERY` | unset | provider name, once configured |
+| `CONTACT_DELIVERY` | unset | `zoho`, plus the Zoho variables above |
 
 ## URLs and redirects
 

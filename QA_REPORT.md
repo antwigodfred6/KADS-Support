@@ -78,6 +78,20 @@ Trailing-slash URLs take two hops (Next.js's built-in slash removal, then our 30
 
 Deployment: `dpl_5rfyVbWuisadAapU9WmbMNKPCmUG`, commit `6676991`, built on Vercel with pnpm 12.10.1 / Node 24; all 18 routes generated; no build errors. The public preview URL serves all pages, the 404, redirects, sitemap, robots and security headers (incl. HSTS) as expected.
 
+## Contact form: Zoho delivery (tested 11 Nov 2026, local fake SMTP server)
+
+Tested end to end through the real form on a local production build, pointed at a local fake mail server with dummy credentials. **No real email was sent.**
+
+| Scenario | Result |
+|---|---|
+| General enquiry | ✅ Authenticated as the mailbox user; delivered to `CONTACT_TO_EMAIL`; Reply-To = visitor; subject "Website enquiry: General question from …" |
+| Referral enquiry | ✅ Delivered to `CONTACT_REFERRAL_TO_EMAIL` |
+| HTML/script in name and message | ✅ Escaped in the HTML email (no `<script>`); shown as plain text in the text version |
+| Mail server unreachable | ✅ Visitor told "your message has not been sent", phone and email shown, input kept; log records only the error code (`ESOCKET`) |
+| Zoho variables missing | ✅ Falls back to the "not switched on" message |
+
+**Not yet tested:** a real send through Zoho. This needs the client's app password in Vercel (see README "Switching it on").
+
 ## Bugs found and fixed during QA
 
 1. Homepage had no `<title>`, because `pageMetadata()` passed `title: undefined`
@@ -110,11 +124,11 @@ These are flagged in the UI (dashed "Client to confirm" / "Placeholder" badges, 
 | Approve the accessibility statement draft | /accessibility |
 | Original logo artwork (current one is a redrawn SVG; house outline omitted) | Header, footer, favicon |
 | Licensed or own photography (illustrations are placeholders) | All image slots |
-| Contact form provider and recipient address | `lib/mailer.ts` |
+| Zoho app password and the recipient inbox(es) for the contact form | Vercel env vars (README) |
 
 ## Outstanding: technical, before launch
 
-- Connect the contact form once a provider is approved, and add Cloudflare Turnstile
+- Add the Zoho settings in Vercel, send one real test message, and fix SPF. Consider Cloudflare Turnstile.
 - Real-device testing on the Vercel preview (Lighthouse done: see above)
 - Screen-reader pass (VoiceOver iOS/macOS, NVDA)
 - Set production env vars (`ALLOW_INDEXING=true`, `NEXT_PUBLIC_SHOW_CONTENT_FLAGS=false`, `NEXT_PUBLIC_SITE_URL`)
