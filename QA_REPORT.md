@@ -56,7 +56,7 @@ Trailing-slash URLs take two hops (Next.js's built-in slash removal, then our 30
   Tried: `LazyMotion` with `m` components and asynchronously loaded features (kept; saved ~5 KB). A further option, if Lighthouse flags it on the preview: replace Motion scroll reveals with CSS (`animation-timeline: view()`), which would save ~50 KB.
 - No raster images yet (illustrations are inline SVG), so image weight is ~0. When real photos are added, `next/image` serves AVIF/WebP at the right sizes.
 - Above-the-fold content uses CSS-only entrance animations, so **the first screen is never blank while JavaScript loads**. This fixes the old site's 1–3 second blank screen on mobile.
-- **Not yet done:** Lighthouse / Core Web Vitals on a real deployment (needs the Vercel preview).
+- Lighthouse on the live preview: 100 performance on mobile and desktop (see "Live preview" below). Real-user Core Web Vitals will only exist after launch.
 
 ### SEO
 
@@ -64,6 +64,19 @@ Trailing-slash URLs take two hops (Next.js's built-in slash removal, then our 30
 - `robots.txt` **blocks all crawling unless `ALLOW_INDEXING=true`**, so previews can't be indexed.
 - Holding pages (privacy, cookies, safeguarding, accessibility draft) and the 404 are `noindex` and left out of the sitemap.
 - JSON-LD uses verified facts only (name, URL, phone, email, registered office, company number). `legalName` is added automatically once it's marked verified.
+
+## Live preview: Lighthouse 13.6.0 (11 Nov 2026, https://kads-support.vercel.app)
+
+| Page | Device | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|---|---|
+| Home | Mobile | 100 | 100 | 100 | 66* | 0.9 s | 10 ms | 0 |
+| Home | Desktop | 100 | 100 | 100 | 66* | 0.5 s | 0 ms | 0 |
+| Accommodation | Mobile | 100 | 100 | 100 | 66* | 0.9 s | 10 ms | 0 |
+| Contact | Mobile | 100 | 100 | 100 | 66* | 0.9 s | 0 ms | 0 |
+
+\* The only failing SEO audit is `is-crawlable`: robots.txt blocks crawlers **on purpose** while this is a preview. It passes once `ALLOW_INDEXING=true` is set at launch. Remaining advisory "insights" (legacy JS, unused JS, render-blocking CSS) come mainly from the Next.js runtime and didn't reduce any score.
+
+Deployment: `dpl_5rfyVbWuisadAapU9WmbMNKPCmUG`, commit `6676991`, built on Vercel with pnpm 12.10.1 / Node 24; all 18 routes generated; no build errors. The public preview URL serves all pages, the 404, redirects, sitemap, robots and security headers (incl. HSTS) as expected.
 
 ## Bugs found and fixed during QA
 
@@ -102,7 +115,7 @@ These are flagged in the UI (dashed "Client to confirm" / "Placeholder" badges, 
 ## Outstanding: technical, before launch
 
 - Connect the contact form once a provider is approved, and add Cloudflare Turnstile
-- Lighthouse and real-device testing on the Vercel preview
+- Real-device testing on the Vercel preview (Lighthouse done: see above)
 - Screen-reader pass (VoiceOver iOS/macOS, NVDA)
 - Set production env vars (`ALLOW_INDEXING=true`, `NEXT_PUBLIC_SHOW_CONTENT_FLAGS=false`, `NEXT_PUBLIC_SITE_URL`)
 - Follow `MIGRATION.md`; separately, raise the SPF/Zoho issue with the client
