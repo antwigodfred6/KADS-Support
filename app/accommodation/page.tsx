@@ -64,7 +64,7 @@ export default function AccommodationPage() {
 
       <Section tone="deep" labelledBy="homes-title" className="py-16 md:py-24 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="lg:sticky lg:top-36 lg:col-span-5 lg:self-start">
             <Eyebrow>{homes.eyebrow}</Eyebrow>
             <h2 id="homes-title" className="text-h2">
               {homes.title}

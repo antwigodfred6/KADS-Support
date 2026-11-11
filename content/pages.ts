@@ -154,7 +154,20 @@ export const accommodation = {
           { src: "/images/homes/feltham-kitchen.jpg", width: 720, height: 900, caption: "Kitchen", alt: "The kitchen in the Feltham home: white cupboards, a gas hob, sink, washing machine and a wooden dining table on a tiled floor" },
         ],
       },
-      { area: "Isleworth", council: "London Borough of Hounslow", district: "TW7", offer: "Studio flat" },
+      {
+        area: "Isleworth",
+        council: "London Borough of Hounslow",
+        district: "TW7",
+        offer: "Studio flat",
+        // Real photos supplied by KADS (11 Nov 2026). Skipped: a shot of the front door (letterbox,
+        // intercom, fire notice) and two near-duplicates; a paper on the counter is cropped out.
+        photos: [
+          { src: "/images/homes/isleworth-bed.jpg", width: 720, height: 720, caption: "Sleeping area", alt: "A double bed with red and cream paisley bedding in the Isleworth studio flat" },
+          { src: "/images/homes/isleworth-living.jpg", width: 720, height: 720, caption: "Living area", alt: "A black leather two-seater sofa beside a white chest of drawers on a wooden floor in the Isleworth studio flat" },
+          { src: "/images/homes/isleworth-kitchen.jpg", width: 720, height: 720, caption: "Kitchen", alt: "The studio flat's kitchen: a gas hob with saucepans, a built-in oven and a washing machine" },
+          { src: "/images/homes/isleworth-kitchen-sink.jpg", width: 720, height: 720, caption: "Kitchen sink", alt: "A sink and draining rack under a window, with wooden kitchen cupboards and a black worktop" },
+        ],
+      },
       {
         area: "Stanwell",
         council: "Spelthorne Borough Council, Surrey",
