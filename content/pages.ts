@@ -6,8 +6,8 @@ import type { SiteImage } from "@/components/art/arch-frame";
  * The visible "Illustrative image" label was removed at KADS's request (11 Nov 2026);
  * `illustrative: true` is kept so they can be found and replaced with real photos.
  */
-const ai = (file: string, alt: string, width = 1600, height = 1200): SiteImage => ({
-  src: `/images/accommodation/${file}`,
+const ai = (file: string, alt: string, width = 1600, height = 1200, folder = "accommodation"): SiteImage => ({
+  src: `/images/${folder}/${file}`,
   alt,
   width,
   height,
@@ -208,15 +208,20 @@ export const employment = {
     title: "From basic skills to a trade.",
     lead: "Knowledge, training and employment go hand in hand. We make sure young people can get the training they need to improve their job prospects and develop themselves.",
     source: "/employment-training/",
+    image: ai("hero-training-workshop.jpg", "Two learners in hi-vis vests working at a bench in a bright training workshop full of hand tools", 2400, 1028, "employment"),
   },
+  /** AI-generated (Runway, 11 Nov 2026), shown without a label at KADS's request */
+  routesImage: ai("routes-into-work.jpg", "A young person in a hi-vis vest, holding a hard hat, standing at the entrance to a bright workplace", 1200, 1600, "employment"),
   training: [
     {
       title: "Basic skills",
+      image: ai("basic-skills.jpg", "A hand writing in a workbook beside a maths worksheet, calculator and laptop", 1600, 1200, "employment"),
       icon: "book-open" as IconName,
       body: "Building strong foundations in literacy and numeracy, and the everyday knowledge young people need for life.",
     },
     {
       title: "Train & trade",
+      image: ai("train-and-trade.jpg", "Gloved hands laying a brick on fresh mortar with a trowel in a training yard", 1600, 1200, "employment"),
       icon: "hammer" as IconName,
       body: "Developing practical trade skills such as bricklaying, decorating, plumbing and carpentry.",
       flag: {
@@ -227,6 +232,7 @@ export const employment = {
     },
     {
       title: "Gardening & horticulture",
+      image: ai("gardening.jpg", "Gloved hands planting a seedling in a raised bed at a community garden", 1600, 1200, "employment"),
       icon: "sprout" as IconName,
       body: "Learning new skills in gardening and horticulture through the Putting Down Roots for Young People project.",
       flag: {

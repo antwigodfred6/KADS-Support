@@ -17,13 +17,14 @@ export const metadata = pageMetadata({
 });
 
 export default function EmploymentPage() {
-  const { hero, training, employment: jobs, staff } = employment;
+  const { hero, training, employment: jobs, staff, routesImage } = employment;
   return (
     <>
       <HeroType
         eyebrow={hero.eyebrow}
         lines={["From basic", "skills to", "a trade."]}
         lead={hero.lead}
+        image={hero.image}
         trail={[{ label: "Employment & Training", href: routes.employment }]}
       />
 
@@ -44,13 +45,18 @@ export default function EmploymentPage() {
               <span className="absolute top-0 left-0 grid size-12 place-items-center rounded-full bg-ink font-display font-bold text-paper lg:top-0">
                 {i + 1}
               </span>
-              <div className="rounded-(--radius-card) bg-white p-7 md:p-8">
+              <div className="overflow-hidden rounded-(--radius-card) bg-white">
+                {"image" in t && t.image ? (
+                  <ArchFrame image={t.image} shape="card" sizes="(min-width: 1024px) 30vw, 100vw" className="aspect-[4/3] w-full rounded-none" />
+                ) : null}
+                <div className="p-7 md:p-8">
                 <IconBadge name={t.icon} />
                 <h3 className="mt-5 text-h3">
                   {t.title}
                   {"flag" in t && t.flag ? <ContentFlag status={t.flag.status} note={t.flag.note} /> : null}
                 </h3>
                 <p className="mt-3 text-slate">{t.body}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -60,7 +66,7 @@ export default function EmploymentPage() {
       <Section labelledBy="employment-title">
         <div className="grid gap-14 lg:grid-cols-12 lg:items-center">
           <Reveal className="lg:col-span-5">
-            <ArchFrame scene="steps" className="mx-auto aspect-[4/5] w-full max-w-sm" />
+            <ArchFrame scene="steps" image={routesImage} sizes="(min-width: 1024px) 30vw, 90vw" className="mx-auto aspect-[3/4] w-full max-w-sm" />
           </Reveal>
           <div className="lg:col-span-6 lg:col-start-7">
             <Reveal>

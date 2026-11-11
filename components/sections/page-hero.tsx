@@ -112,7 +112,7 @@ export function HeroPanel({ eyebrow, title, lead, trail, scene, image, children 
 }
 
 /** Typographic: large statement with a stepped baseline, no image. */
-export function HeroType({ eyebrow, lines, lead, trail, children }: Omit<BaseProps, "title"> & { lines: string[] }) {
+export function HeroType({ eyebrow, lines, lead, trail, image, children }: Omit<BaseProps, "title"> & { lines: string[]; image?: SiteImage }) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden pt-8 pb-16 md:pb-24">
       <div aria-hidden="true" className="dots absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_70%)]" />
@@ -137,6 +137,15 @@ export function HeroType({ eyebrow, lines, lead, trail, children }: Omit<BasePro
         <div className="mt-10 grid gap-8 md:grid-cols-12">
           <p className="animate-rise text-lead text-slate [animation-delay:400ms] md:col-span-6 md:col-start-6">{lead}</p>
         </div>
+        {image && (
+          <ArchFrame
+            image={image}
+            shape="rounded"
+            priority
+            sizes="(min-width: 1280px) 1240px, 100vw"
+            className="animate-rise mt-12 aspect-[4/3] w-full [animation-delay:480ms] sm:aspect-[21/9]"
+          />
+        )}
         {children}
       </div>
     </section>
