@@ -131,7 +131,17 @@ export const accommodation = {
     // What each home offers: supplied by the site owner, 11 Nov 2026
     areas: [
       { area: "Hounslow", council: "London Borough of Hounslow", district: "TW3", offer: "3 parent-and-child units" },
-      { area: "Bedfont, Feltham", council: "London Borough of Hounslow", district: "TW14", offer: "Two-bedroom house" },
+      {
+        area: "Bedfont, Feltham",
+        council: "London Borough of Hounslow",
+        district: "TW14",
+        offer: "Two-bedroom house",
+        // Real photos supplied by KADS (11 Nov 2026). Kitchen window glass blurred to remove reflections.
+        photos: [
+          { src: "/images/homes/feltham-bedroom.jpg", caption: "Bedroom", alt: "A bedroom in the Feltham home: a double bed with a white floral duvet, beige sheets and grey curtains" },
+          { src: "/images/homes/feltham-kitchen.jpg", caption: "Kitchen", alt: "The kitchen in the Feltham home: white cupboards, a gas hob, sink, washing machine and a wooden dining table on a tiled floor" },
+        ],
+      },
       { area: "Isleworth", council: "London Borough of Hounslow", district: "TW7", offer: "Studio flat" },
       { area: "Stanwell", council: "Spelthorne Borough Council, Surrey", district: "TW19", offer: "4 rooms, all en-suite" },
     ],

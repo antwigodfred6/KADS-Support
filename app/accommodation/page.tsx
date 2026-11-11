@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AlertCircle, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { ArchFrame } from "@/components/art/arch-frame";
@@ -74,9 +75,15 @@ export default function AccommodationPage() {
             </p>
           </Reveal>
           <div className="lg:col-span-6 lg:col-start-7">
-            <RevealGroup className="grid gap-3 sm:grid-cols-2">
+            <RevealGroup className="grid grid-flow-row-dense gap-3 sm:grid-cols-2">
               {homes.areas.map((h) => (
-                <RevealItem key={h.district} className="flex h-full items-start gap-4 rounded-(--radius-card) border border-line bg-white p-5">
+                <RevealItem
+                  key={h.district}
+                  className={cn(
+                    "flex h-full items-start gap-4 rounded-(--radius-card) border border-line bg-white p-5",
+                    "photos" in h && h.photos && "flex-col sm:col-span-2 sm:flex-row"
+                  )}
+                >
                   <span aria-hidden="true" className="grid size-11 shrink-0 place-items-center rounded-full bg-orange-100 text-orange-700">
                     <MapPin className="size-5" strokeWidth={1.75} />
                   </span>
@@ -86,6 +93,31 @@ export default function AccommodationPage() {
                     <p className="mt-1 text-[0.95rem] text-slate">{h.council}</p>
                     <p className="mt-1 text-sm font-semibold tracking-wide text-teal-600 tabular-nums">{h.district}</p>
                   </div>
+                  {"photos" in h && h.photos ? (
+                    <ul className="grid w-full grid-cols-2 gap-2 sm:ml-auto sm:max-w-72">
+                      {h.photos.map((ph) => (
+                        <li key={ph.src}>
+                          <a
+                            href={ph.src}
+                            target="_blank"
+                            rel="noopener"
+                            className="group/photo block overflow-hidden rounded-[10px] bg-paper-deep"
+                          >
+                            <Image
+                              src={ph.src}
+                              alt={ph.alt}
+                              width={720}
+                              height={900}
+                              sizes="(min-width: 640px) 144px, 45vw"
+                              className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover/photo:scale-[1.04]"
+                            />
+                            <span className="sr-only"> (view larger photo, opens in a new tab)</span>
+                          </a>
+                          <p className="mt-1.5 text-center text-sm text-slate">{ph.caption}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </RevealItem>
               ))}
             </RevealGroup>
