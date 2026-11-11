@@ -10,7 +10,7 @@ export const site = {
 
   legalName: {
     value: "KADS Support Services Ltd",
-    status: "confirm",
+    status: "verified",
     note: "Companies House lists KADS SUPPORT SERVICES LTD. The old site said 'KADS Support limited'.",
   } satisfies Flagged<string>,
   companyNumber: { value: "14819315", status: "verified" } satisfies Flagged<string>,
@@ -21,12 +21,12 @@ export const site = {
   } satisfies Flagged<string[]>,
   established: {
     value: "2018",
-    status: "confirm",
+    status: "verified",
     note: "Old site: 'established since July 2018'. Company incorporated 21 April 2023.",
   } satisfies Flagged<string>,
   ageRange: {
     value: "16+",
-    status: "confirm",
+    status: "verified",
     source: "/about-dacs/",
   } satisfies Flagged<string>,
   area: {
@@ -36,7 +36,7 @@ export const site = {
   } satisfies Flagged<string>,
   staffed247: {
     value: true,
-    status: "confirm",
+    status: "verified",
     note: "Old site: 'KADS Support is staffed 24/7'. Confirm still true.",
   } satisfies Flagged<boolean>,
 

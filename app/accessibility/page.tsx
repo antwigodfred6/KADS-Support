@@ -1,15 +1,13 @@
 import { Eyebrow } from "@/components/sections/primitives";
-import { ContentFlag } from "@/components/sections/primitives";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
 
-// DRAFT FOR CLIENT APPROVAL: describes the website only. noindex until approved.
+// Approved by KADS on 11 Nov 2026. Describes the website only. Review at least once a year.
 export const metadata = pageMetadata({
   title: "Accessibility statement",
   description: "Accessibility of the KADS Support website and how to get information in another format.",
   path: routes.accessibility,
-  noindex: true,
 });
 
 export default function AccessibilityPage() {
@@ -19,7 +17,6 @@ export default function AccessibilityPage() {
         <Eyebrow>Accessibility</Eyebrow>
         <h1 id="page-title" className="text-h1">
           Accessibility statement
-          <ContentFlag status="placeholder" note="Draft written for the new site. Client to approve, and add a date of last review." />
         </h1>
         <div className="prose-kads mt-10 text-slate">
           <p>
@@ -41,6 +38,8 @@ export default function AccessibilityPage() {
             If you need information from this website in a different format, or find something difficult to use, please call{" "}
             <a href={site.phone.href}>{site.phone.display}</a> or email <a href={site.email.href}>{site.email.display}</a>.
           </p>
+          <h2 className="text-ink">About this statement</h2>
+          <p>This statement was last reviewed on 11 November 2026.</p>
         </div>
       </div>
     </section>

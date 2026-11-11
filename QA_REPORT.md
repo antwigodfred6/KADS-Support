@@ -103,28 +103,20 @@ Tested end to end through the real form on a local production build, pointed at 
 7. Logo link accessible name mismatch; review-badge contrast; error-summary focus timing
 8. Social image used unsupported `z-index`
 
-## Outstanding: needs the client
+## Client confirmation (11 Nov 2026)
 
-These are flagged in the UI (dashed "Client to confirm" / "Placeholder" badges, with `NEXT_PUBLIC_SHOW_CONTENT_FLAGS=true`) and listed in `AUDIT.md` §12:
+KADS confirmed all flagged wording, and those items are now `verified` with no review badges: legal name (KADS Support Services Ltd), "since 2018", ages 16+, 24/7 staffing, manager, partner list, Spear / Putting Down Roots / trade-course wording, counselling, shared amenities, stand-alone and 24-hour descriptions, homes intro, registered office, and the accessibility statement (now public and in the sitemap).
+
+## Outstanding: needs information or documents from the client
 
 | Item | Where |
 |---|---|
-| Legal name (Companies House says KADS Support Services Ltd) | Footer |
-| "Since 2018" vs incorporation April 2023 | About |
-| Age range 16+, area served (London?), "staffed 24/7" | Home, Accommodation |
-| Manager name and qualification wording | About |
-| Partner list: which are current and approved to name | Home |
-| Spear description (old one was a copy-paste error) | Employment |
-| Putting Down Roots project still running? Trade courses accredited? | Employment |
-| Who delivers counselling, and their qualifications | Advice |
-| Whether shared amenities apply to all homes | Accommodation |
-| Referral eligibility, areas, referral email/form, response time | Referrals |
-| **Ofsted registration status**: not mentioned anywhere until confirmed | (none) |
+| Referral eligibility, areas covered, secure referral email/form, response time (the "Coming soon" box keeps its badge until supplied) | Referrals |
+| **Ofsted registration status**: the site makes no claim either way | (none) |
 | Privacy policy, cookie statement, safeguarding summary + DSL contact | Holding pages |
-| Approve the accessibility statement draft | /accessibility |
-| Vector version of the logo (optional; the site now uses the original PNG artwork) | Print and very large uses |
-| Licensed or own photography (illustrations are placeholders) | All image slots |
+| Interior photos for the Hounslow, Isleworth and Stanwell homes | Accommodation |
 | Zoho app password and the recipient inbox(es) for the contact form | Vercel env vars (README) |
+| Vector version of the logo (optional; the site uses the original PNG artwork) | Print and very large uses |
 
 ## Outstanding: technical, before launch
 

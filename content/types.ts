@@ -4,6 +4,9 @@
  *  - confirm:     on the live site, but may be out of date. Needs client sign-off
  *  - placeholder: written for the new site; must be replaced or approved
  *
+ * 11 Nov 2026: KADS confirmed all flagged wording; those items are now "verified".
+ * The original review notes are kept beside each item for history.
+ *
  * Items that are not "verified" show a small review flag when
  * NEXT_PUBLIC_SHOW_CONTENT_FLAGS=true (dev and client-review previews).
  */

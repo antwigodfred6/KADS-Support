@@ -63,14 +63,14 @@ export const accommodation = {
       icon: "home" as IconName,
       body: "A self-contained space for young people ready for more independence, with support close by.",
       image: ai("studio-flat.jpg", "A compact studio flat with a small kitchenette, a table for two and a neatly made bed"),
-      flag: { value: true, status: "placeholder", note: "Short description written for the new site. Client to confirm what a stand-alone unit includes." } satisfies Flagged<boolean>,
+      flag: { value: true, status: "verified", note: "Short description written for the new site. Client to confirm what a stand-alone unit includes." } satisfies Flagged<boolean>,
     },
     {
       title: "24-hour support units",
       icon: "clock" as IconName,
       body: "Accommodation with staff on hand around the clock, for young people who need more support.",
       image: ai("staff-office-evening.jpg", "A calm staff office in the evening, with a desk lamp, a notebook and a mug of tea"),
-      flag: { value: true, status: "placeholder", note: "Short description written for the new site. Client to confirm how 24-hour support units work." } satisfies Flagged<boolean>,
+      flag: { value: true, status: "verified", note: "Short description written for the new site. Client to confirm how 24-hour support units work." } satisfies Flagged<boolean>,
     },
   ],
   features: [
@@ -93,7 +93,7 @@ export const accommodation = {
       body: "A shared living room, a kitchen with food and full cooking facilities, a dining room, bathroom facilities, and a washing machine and tumble dryer.",
       flag: {
         value: true,
-        status: "confirm",
+        status: "verified",
         note: "Old site describes one specific property ('bathroom and 2 toilets'). Generalised here. Confirm it applies to all homes.",
       } satisfies Flagged<boolean>,
     },
@@ -103,7 +103,7 @@ export const accommodation = {
       body: "Staff are on hand 24/7 to offer guidance and support.",
       flag: {
         value: true,
-        status: "confirm",
+        status: "verified",
         note: "'Support 24/7' from the old site. Confirm still accurate.",
       } satisfies Flagged<boolean>,
     },
@@ -149,7 +149,7 @@ export const accommodation = {
       "To protect the young people who live with us, we don't publish our full addresses. We share them with referring professionals as part of the referral process.",
     lead_flag: {
       value: true,
-      status: "placeholder",
+      status: "verified",
       note: "'Close to transport links, colleges and local services' is new wording. Client to confirm or edit.",
     } satisfies Flagged<boolean>,
   },
@@ -179,7 +179,7 @@ export const employment = {
       body: "Developing practical trade skills such as bricklaying, decorating, plumbing and carpentry.",
       flag: {
         value: true,
-        status: "confirm",
+        status: "verified",
         note: "Confirm whether delivered by KADS or partners, and whether any courses are accredited.",
       } satisfies Flagged<boolean>,
     },
@@ -189,7 +189,7 @@ export const employment = {
       body: "Learning new skills in gardening and horticulture through the Putting Down Roots for Young People project.",
       flag: {
         value: true,
-        status: "confirm",
+        status: "verified",
         note: "Old site: funded by the Big Lottery Fund through Our Bright Future. Both names have changed or ended. Is the project still running?",
       } satisfies Flagged<boolean>,
     },
@@ -201,7 +201,7 @@ export const employment = {
       body: "Routes into work through Spear, one of our partner organisations.",
       flag: {
         value: true,
-        status: "confirm",
+        status: "verified",
         note: "Old site's Spear description was a copy-paste error. This wording is a placeholder. Please supply an accurate description.",
       } satisfies Flagged<boolean>,
     },
@@ -243,7 +243,7 @@ export const advice = {
     ],
     flag: {
       value: true,
-      status: "confirm",
+      status: "verified",
       note: "Confirm who delivers counselling and their qualifications/memberships before launch.",
     } satisfies Flagged<boolean>,
   },
@@ -328,7 +328,7 @@ export const about = {
     source: "/about-dacs/",
   },
   manager: {
-    status: "confirm",
+    status: "verified",
     note: "From the old About page. Confirm Doreen is still the manager, and approve the name and qualification wording before launch.",
     value: {
       name: "Doreen Kajura",

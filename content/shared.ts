@@ -94,7 +94,7 @@ export const journey: { step: string; title: string; body: string }[] = [
 ];
 
 export const partners: Flagged<string[]> = {
-  status: "confirm",
+  status: "verified",
   note: "From the old homepage. Confirm which are current, formal partnerships and approved to be named.",
   source: "/ (Our Partners)",
   value: [

@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
-import { ContentFlag, Eyebrow, Section } from "@/components/sections/primitives";
+import { Eyebrow, Section } from "@/components/sections/primitives";
 import { contactFaqs, helplines } from "@/content/contact";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
@@ -56,7 +56,6 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-on-dark-muted">
                       Registered office
-                      <ContentFlag status="confirm" note={site.registeredOffice.note} />
                     </p>
                     <address className="mt-1 not-italic text-paper">
                       {site.registeredOffice.value.map((l) => (

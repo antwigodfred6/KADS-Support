@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 
-// Pages awaiting approved content (privacy, cookies, safeguarding, accessibility)
+// Pages awaiting approved content (privacy, cookies, safeguarding)
 // are noindex and left out until the client supplies them.
 const indexable = [
   { path: routes.home, priority: 1 },
@@ -13,6 +13,7 @@ const indexable = [
   { path: routes.about, priority: 0.7 },
   { path: routes.objectives, priority: 0.6 },
   { path: routes.contact, priority: 0.7 },
+  { path: routes.accessibility, priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
