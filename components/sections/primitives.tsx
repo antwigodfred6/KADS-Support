@@ -78,8 +78,10 @@ export function ContentFlag({ status, note, className }: { status: ContentStatus
         className
       )}
     >
+      {/* Short label only: the full note stays in the tooltip so headings aren't read out with long review notes */}
+      <span className="sr-only">(</span>
       {label}
-      {note ? <span className="sr-only">: {note}</span> : null}
+      <span className="sr-only">)</span>
     </span>
   );
 }

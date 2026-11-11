@@ -127,6 +127,8 @@ export function HeroType({ eyebrow, lines, lead, trail, children }: Omit<BasePro
               style={{ paddingLeft: `min(${i * 9}vw, ${i * 7}rem)`, animationDelay: `${120 + i * 90}ms` }}
             >
               {i === lines.length - 1 ? <span className="font-serif font-normal text-teal-600 italic">{line}</span> : line}
+              {/* Real space so screen readers don't run the lines together ("basicskills") */}
+              {i < lines.length - 1 ? " " : null}
             </span>
           ))}
         </h1>
