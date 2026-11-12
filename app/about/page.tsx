@@ -93,9 +93,6 @@ export default function AboutPage() {
                 <p key={p}>{p}</p>
               ))}
             </div>
-            <ArrowLink href={routes.safeguarding} className="mt-6">
-              Safeguarding information
-            </ArrowLink>
           </div>
           <ul className="relative grid gap-3 lg:col-span-4">
             {policies.highlights.map((h, i) => {

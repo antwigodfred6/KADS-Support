@@ -34,6 +34,5 @@ export const footerNav = {
     { label: "Privacy", href: routes.privacy },
     { label: "Cookies", href: routes.cookies },
     { label: "Accessibility", href: routes.accessibility },
-    { label: "Safeguarding", href: routes.safeguarding },
   ],
 } satisfies Record<string, NavLink[]>;

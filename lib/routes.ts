@@ -15,7 +15,6 @@ export const routes = {
   privacy: "/privacy-policy",
   cookies: "/cookie-policy",
   accessibility: "/accessibility",
-  safeguarding: "/safeguarding",
 } as const;
 
 export type RoutePath = (typeof routes)[keyof typeof routes];

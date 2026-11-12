@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 
-// Pages awaiting approved content (privacy, cookies, safeguarding)
+// Pages awaiting approved content (privacy, cookies)
 // are noindex and left out until the client supplies them.
 const indexable = [
   { path: routes.home, priority: 1 },
