@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "cn";
 import { ArchFrame, type SiteImage } from "@/components/art/arch-frame";
+import { DriftShapes } from "@/components/art/drift-shapes";
 import type { SceneName } from "@/components/art/scenes";
 import { site } from "@/content/site";
 import { JsonLd } from "@/lib/seo";
@@ -64,7 +65,8 @@ type BaseProps = {
 export function HeroSplit({ eyebrow, title, lead, trail, scene, image, children }: BaseProps & { scene: SceneName; image?: SiteImage }) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden pt-8 pb-16 md:pb-24">
-      <div className="container-site grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <DriftShapes />
+      <div className="container-site relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
           <Breadcrumbs trail={trail} />
           <div className="animate-rise [animation-delay:60ms]">
@@ -85,8 +87,9 @@ export function HeroSplit({ eyebrow, title, lead, trail, scene, image, children 
 /** Panel: full-width illustration band with a navy text panel overlapping it. */
 export function HeroPanel({ eyebrow, title, lead, trail, scene, image, children }: BaseProps & { scene: SceneName; image?: SiteImage }) {
   return (
-    <section aria-labelledby="page-title" className="relative pt-8 pb-16 md:pb-24">
-      <div className="container-site">
+    <section aria-labelledby="page-title" className="relative overflow-hidden pt-8 pb-16 md:pb-24">
+      <DriftShapes />
+      <div className="container-site relative">
         <Breadcrumbs trail={trail} />
         <div className="relative grid lg:grid-cols-12">
           <ArchFrame
@@ -116,6 +119,7 @@ export function HeroType({ eyebrow, lines, lead, trail, image, children }: Omit<
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden pt-8 pb-16 md:pb-24">
       <div aria-hidden="true" className="dots absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_70%)]" />
+      <DriftShapes />
       <div className="container-site relative">
         <Breadcrumbs trail={trail} />
         <div className="animate-rise [animation-delay:60ms]">
@@ -155,8 +159,9 @@ export function HeroType({ eyebrow, lines, lead, trail, image, children }: Omit<
 /** Soft: calm tinted hero for sensitive topics. */
 export function HeroSoft({ eyebrow, title, lead, trail, scene, image, children }: BaseProps & { scene: SceneName; image?: SiteImage }) {
   return (
-    <section aria-labelledby="page-title" className="relative bg-mist pt-8 pb-16 md:pb-24">
-      <div className="container-site grid items-end gap-12 lg:grid-cols-12">
+    <section aria-labelledby="page-title" className="relative overflow-hidden bg-mist pt-8 pb-16 md:pb-24">
+      <DriftShapes />
+      <div className="container-site relative grid items-end gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Breadcrumbs trail={trail} />
           <div className="animate-rise [animation-delay:60ms]">
@@ -180,7 +185,8 @@ export function HeroSoft({ eyebrow, title, lead, trail, scene, image, children }
 export function HeroQuote({ eyebrow, quote, lead, trail }: { eyebrow: string; quote: string; lead: string; trail: Crumb[] }) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden bg-paper-deep pt-8 pb-20 md:pb-28">
-      <div className="container-site">
+      <DriftShapes />
+      <div className="container-site relative">
         <Breadcrumbs trail={trail} />
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">

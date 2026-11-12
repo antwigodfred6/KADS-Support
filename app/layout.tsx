@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { MotionProvider } from "@/components/motion/motion-provider";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { site } from "@/content/site";
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <MotionProvider>
+          <ScrollProgress />
           <SiteHeader />
           <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}

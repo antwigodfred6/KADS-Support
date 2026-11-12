@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Phone } from "lucide-react";
 import { ArchFrame } from "@/components/art/arch-frame";
+import { DriftShapes } from "@/components/art/drift-shapes";
+import { Marquee } from "@/components/motion/marquee";
+import { TextReveal } from "@/components/motion/text-reveal";
 import { IconBadge } from "@/components/brand/icon";
 import { LogoMark } from "@/components/brand/logo";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -26,6 +29,10 @@ export default function HomePage() {
       <Hero />
       <Intro />
       <Services />
+      <Marquee
+        className="border-y border-line bg-paper"
+        items={["A safe home", "Training", "Mentoring", "Respect", "Independence", "Counselling", "Personal development", "Skilled support"]}
+      />
       <Approach />
       <Independence />
       <Partners />
@@ -39,6 +46,7 @@ function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden pt-6 pb-20 md:pt-10 md:pb-28">
       <div aria-hidden="true" className="dots absolute inset-x-0 top-0 h-[70%] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+      <DriftShapes />
       <div className="container-site relative grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
         <div>
           <div className="animate-rise">
@@ -52,7 +60,7 @@ function Hero() {
             <span className="relative whitespace-nowrap font-serif font-normal text-navy italic">
               your own path.
               <svg aria-hidden="true" viewBox="0 0 300 14" preserveAspectRatio="none" className="absolute -bottom-1 left-0 h-3 w-full text-orange">
-                <path d="M2 10 C 70 2, 160 2, 298 8" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                <path d="M2 10 C 70 2, 160 2, 298 8" pathLength={1} className="draw-path" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
               </svg>
             </span>
           </h1>
@@ -83,12 +91,12 @@ function Hero() {
 
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
           <ArchFrame scene="doorway" image={home.hero.image} sizes="(min-width: 1024px) 40vw, 90vw" animate priority className="aspect-[4/5] w-full" />
-          <div
-            aria-hidden="true"
-            className="animate-rise absolute -bottom-6 -left-4 flex items-center gap-3 rounded-full bg-white py-3 pr-5 pl-3 shadow-lift [animation-delay:600ms] sm:-left-8"
-          >
-            <LogoMark className="h-9" />
-            <span className="font-display text-sm font-semibold text-ink">A personalised plan for every young person</span>
+          <div aria-hidden="true" className="animate-rise absolute -bottom-6 -left-4 [animation-delay:600ms] sm:-left-8">
+            <div className="float flex items-center gap-3 rounded-full bg-white py-3 pr-5 pl-3 shadow-lift">
+              <LogoMark className="h-9" />
+              <span className="font-display text-sm font-semibold text-ink">A personalised plan for every young person</span>
+              <span className="pulse-ring ml-1 size-2.5 shrink-0 rounded-full bg-orange" />
+            </div>
           </div>
         </div>
       </div>
@@ -141,7 +149,7 @@ function Services() {
         <div className="max-w-2xl">
           <Eyebrow>What we offer</Eyebrow>
           <h2 id="services-title" className="text-h2">
-            Support that fits around each young person.
+            <TextReveal text="Support that fits around each young person." />
           </h2>
         </div>
         <p className="max-w-sm text-slate">Three connected services, so a young person can find a home, learn and get guidance in one place.</p>
@@ -214,7 +222,7 @@ function Approach() {
         <Reveal className="max-w-2xl">
           <Eyebrow onDark>Our approach</Eyebrow>
           <h2 id="approach-title" className="text-h2">
-            From the first visit to the next chapter.
+            <TextReveal text="From the first visit to the next chapter." />
           </h2>
           <p className="mt-5 text-lead text-on-dark-muted">
             Moving can be unsettling. We keep each step clear and calm, and the young person is involved in decisions throughout.
@@ -222,13 +230,13 @@ function Approach() {
         </Reveal>
 
         <ol className="relative mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          <span aria-hidden="true" className="absolute top-6 right-[12%] left-6 hidden h-px bg-paper/20 lg:block" />
+          <span aria-hidden="true" className="grow-x absolute top-6 right-[12%] left-6 hidden h-0.5 bg-gradient-to-r from-paper/30 via-teal-400 to-orange lg:block" />
           {journey.map((j, i) => (
             <Reveal as="li" key={j.step} delay={i * 0.1} className="relative">
               <span
                 className={cn(
                   "relative grid size-12 place-items-center rounded-full font-display font-bold",
-                  i === journey.length - 1 ? "bg-orange text-ink" : "bg-navy text-paper ring-1 ring-paper/25"
+                  i === journey.length - 1 ? "pulse-ring bg-orange text-ink" : "bg-navy text-paper ring-1 ring-paper/25"
                 )}
               >
                 {j.step}
@@ -260,7 +268,7 @@ function Independence() {
         <Reveal className="order-1 lg:order-2">
           <Eyebrow>Building independence</Eyebrow>
           <h2 id="independence-title" className="text-h2">
-            Confidence, one everyday skill at a time.
+            <TextReveal text="Confidence, one everyday skill at a time." />
           </h2>
           <p className="mt-6 text-lead text-slate">
             Independence is built in ordinary moments. Staff work alongside each young person, and with their wider professional team, on

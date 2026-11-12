@@ -39,6 +39,8 @@ export function ArchFrame({
   sizes?: string;
 }) {
   const Scene = scenes[scene];
+  // Below-the-fold photos open up as they scroll into view; card photos keep their hover zoom instead.
+  const scrollFx = Boolean(image) && !priority && !animate && shape !== "card";
   return (
     <div
       className={cn(
@@ -47,6 +49,7 @@ export function ArchFrame({
         shape === "rounded" && "rounded-[28px]",
         shape === "card" && "rounded-[10px]",
         animate && "motion-safe:animate-[arch-reveal_1s_var(--ease-out-soft)_both]",
+        scrollFx && "frame-scroll",
         className
       )}
     >
@@ -59,7 +62,7 @@ export function ArchFrame({
             height={image.height}
             priority={priority}
             sizes={sizes}
-            className="size-full object-cover"
+            className={cn("size-full object-cover", priority && "frame-kenburns")}
           />
         </>
       ) : (

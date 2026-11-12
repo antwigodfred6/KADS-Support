@@ -3,6 +3,8 @@ import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/brand/logo";
 import { Reveal } from "@/components/motion/reveal";
+import { TextReveal } from "@/components/motion/text-reveal";
+import { DriftShapes } from "@/components/art/drift-shapes";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 
@@ -17,11 +19,12 @@ export function CtaBand({
   return (
     <section aria-labelledby="cta-title" className="on-dark relative overflow-hidden bg-ink py-20 text-paper md:py-28">
       <div aria-hidden="true" className="dots-dark absolute inset-0" />
-      <LogoMark tone="dark" className="pointer-events-none absolute -right-16 -bottom-10 h-[22rem] w-auto opacity-[0.12] md:right-[6%] md:h-[30rem]" />
+      <DriftShapes tone="dark" />
+      <LogoMark tone="dark" className="float pointer-events-none absolute -right-16 -bottom-10 h-[22rem] w-auto opacity-[0.12] md:right-[6%] md:h-[30rem]" />
       <div className="container-site relative">
         <Reveal className="max-w-2xl">
           <h2 id="cta-title" className="text-h2 text-paper">
-            {title}
+            <TextReveal text={title} />
           </h2>
           <p className="mt-5 text-lead text-on-dark-muted">{body}</p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
