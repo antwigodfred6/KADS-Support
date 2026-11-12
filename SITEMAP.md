@@ -55,7 +55,7 @@ Dropdown only on "About", because the three services are the main paths and shou
 
 | Page | URL | Justification | Content status |
 |---|---|---|---|
-| **Referrals** | `/referrals` | The main audience is referring professionals; the process is already on About but buried | ✅ Can build from verified About-page text; ❓ eligibility, areas and referral email need confirmation |
+| **Referrals** | `/referrals` | The main audience is referring professionals; the process is already on About but buried | ✅ Built from verified About-page text (KADS chose on 12 Nov 2026 not to add extra referral details) |
 | **Privacy Policy** | `/privacy-policy` | **Legally needed**: the contact form collects personal data (UK GDPR) | ⛔ Needs approved text from the client. The page will show "being updated, contact us" until supplied |
 | **Cookie Policy** | `/cookie-policy` | Only needed if we add analytics or non-essential cookies. The new build sets none by default, so **no cookie banner** | ⛔ Short approved statement |
 | **Accessibility Statement** | `/accessibility` | Good practice; documents WCAG 2.2 AA target | 🟡 I can draft a factual statement about *the website* for client approval |

@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 
-// Pages awaiting approved content (privacy, cookies)
-// are noindex and left out until the client supplies them.
+// Privacy and cookie policies are drafts awaiting KADS approval:
+// they stay noindex and out of the sitemap until approved.
 const indexable = [
   { path: routes.home, priority: 1 },
   { path: routes.accommodation, priority: 0.9 },

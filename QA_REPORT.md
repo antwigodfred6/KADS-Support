@@ -62,7 +62,7 @@ Trailing-slash URLs take two hops (Next.js's built-in slash removal, then our 30
 
 - Titles and descriptions are written per page; canonical uses `NEXT_PUBLIC_SITE_URL`.
 - `robots.txt` **blocks all crawling unless `ALLOW_INDEXING=true`**, so previews can't be indexed.
-- Holding pages (privacy, cookies, accessibility draft) and the 404 are `noindex` and left out of the sitemap.
+- Draft pages awaiting approval (privacy, cookies) and the 404 are `noindex` and left out of the sitemap.
 - JSON-LD uses verified facts only (name, URL, phone, email, registered office, company number). `legalName` is added automatically once it's marked verified.
 
 ## Live preview: Lighthouse 13.6.0 (11 Nov 2026, https://kads-support.vercel.app)
@@ -111,9 +111,8 @@ KADS confirmed all flagged wording, and those items are now `verified` with no r
 
 | Item | Where |
 |---|---|
-| Referral eligibility, areas covered, secure referral email/form, response time (the "Coming soon" box keeps its badge until supplied) | Referrals |
 | **Ofsted registration status**: the site makes no claim either way | (none) |
-| Privacy policy, cookie statement | Holding pages |
+| Approval of the draft privacy and cookie policies: ICO registration number, data protection contact, how long enquiries are kept, Zoho data centre | Privacy, Cookies (noindex until approved) |
 | Interior photos for the Hounslow, Isleworth and Stanwell homes | Accommodation |
 | Zoho app password and the recipient inbox(es) for the contact form | Vercel env vars (README) |
 | Vector version of the logo (optional; the site uses the original PNG artwork) | Print and very large uses |

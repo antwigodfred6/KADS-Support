@@ -3,7 +3,7 @@ import { IconBadge } from "@/components/brand/icon";
 import { Reveal } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
 import { HeroSplit } from "@/components/sections/page-hero";
-import { ContentFlag, Eyebrow, Section } from "@/components/sections/primitives";
+import { Eyebrow, Section } from "@/components/sections/primitives";
 import { Button } from "@/components/ui/button";
 import { referrals } from "@/content/pages";
 import { site } from "@/content/site";
@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
 });
 
 export default function ReferralsPage() {
-  const { hero, steps, awaiting } = referrals;
+  const { hero, steps } = referrals;
   return (
     <>
       <HeroSplit eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "Referrals", href: routes.referrals }]} scene="path">
@@ -68,27 +68,6 @@ export default function ReferralsPage() {
             </Reveal>
           ))}
         </ol>
-      </Section>
-
-      <Section labelledBy="details-title" className="py-16 md:py-24">
-        <Reveal className="grid gap-8 rounded-[28px] border-2 border-dashed border-line p-8 md:p-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <h2 id="details-title" className="text-h3">
-              Coming soon: referral details
-              <ContentFlag status={awaiting.status} note={awaiting.note} />
-            </h2>
-            <p className="mt-3 text-slate">
-              We&rsquo;re adding more detail for professionals. In the meantime, please call or email and we&rsquo;ll talk you through it.
-            </p>
-          </div>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
-            {awaiting.value.map((a) => (
-              <li key={a} className="rounded-[10px] bg-paper-deep px-4 py-3 text-ink">
-                {a}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
       </Section>
 
       <CtaBand title="Ready to discuss a referral?" body="Call or email our team. We'll talk through the young person's needs and whether we're the right fit." />

@@ -437,14 +437,4 @@ export const referrals = {
       icon: "key" as IconName,
     },
   ],
-  awaiting: {
-    status: "placeholder",
-    note: "Eligibility criteria, areas served, referral email/form and response times are needed from the client.",
-    value: [
-      "Eligibility criteria and age range",
-      "Boroughs and areas we cover",
-      "Secure referral email or form",
-      "Typical response time",
-    ],
-  } satisfies Flagged<string[]>,
 };
