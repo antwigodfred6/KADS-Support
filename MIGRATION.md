@@ -68,6 +68,8 @@ for h in www mail autodiscover _dmarc zmail._domainkey; do echo "== $h"; dig +sh
 
 ## 6. Prepare the rollback plan
 
+A read-only snapshot of the public records taken on 12 Nov 2026 is in `docs/dns-snapshot-2026-11-12.txt`. The `@` A/AAAA records already have a 60-second TTL and `www` has 300, so no TTL change is needed beforehand. Take a fresh snapshot (and hPanel screenshots) on the day.
+
 - Keep the **Hostinger hosting plan active and the WordPress site unchanged** for at least 30 days after cutover.
 - Rollback = put the `@` and `www` records back to the values in the snapshot (step 3). With a low TTL, this takes effect within minutes.
 - 24–48 hours before cutover, **lower the TTL** of the `@` and `www` records to 300 seconds (5 minutes). This is the only pre-change edit.
@@ -78,6 +80,7 @@ for h in www mail autodiscover _dmarc zmail._domainkey; do echo "== $h"; dig +sh
 1. In Vercel → Project → **Settings → Domains**, add `kadssupport.com` and `www.kadssupport.com`. Vercel shows the exact records to create (typically an **A record** for the apex and a **CNAME** for `www`; use the values Vercel displays at the time). Choose which hostname is primary (recommended: `kadssupport.com`, with `www` redirecting to it).
 2. In Hostinger DNS, **edit only**:
    - `@` A record(s) → Vercel's value (remove the old Hostinger A records for `@` only)
+   - `@` **AAAA** records (IPv6): remove both Hostinger AAAA records for `@`. The 12 Nov 2026 snapshot found two (`2a02:4780:…`). If they stay, visitors on IPv6 would still reach the old site.
    - `www` CNAME → Vercel's value
 3. If Hostinger's CDN adds its own records for the apex, disable the CDN for this domain in hPanel first, and note it in the rollback plan.
 4. If a **CAA** record exists, make sure it allows Vercel's certificate authority (Let's Encrypt). Add `letsencrypt.org` if needed, otherwise HTTPS will fail.

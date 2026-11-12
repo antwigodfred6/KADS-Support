@@ -1,0 +1,39 @@
+# kadssupport.com public DNS snapshot, 2026-11-12T01:19Z (read-only lookups)
+== A
+kadssupport.com.	60	IN	A	89.116.109.202
+kadssupport.com.	60	IN	A	91.108.103.107
+== AAAA
+kadssupport.com.	60	IN	AAAA	2a02:4780:25:5a63:a1a0:948b:4f0f:1227
+kadssupport.com.	60	IN	AAAA	2a02:4780:26:9c2b:9581:1be7:6351:410a
+== CNAME
+== MX
+kadssupport.com.	60	IN	MX	50 mx3.zoho.eu.
+kadssupport.com.	60	IN	MX	20 mx2.zoho.eu.
+kadssupport.com.	60	IN	MX	10 mx.zoho.eu.
+== TXT
+kadssupport.com.	3600	IN	TXT	"v=spf1 include:_spf.mail.hostinger.com ~all"
+== CAA
+== NS
+kadssupport.com.	86400	IN	NS	aurora.dns-parking.com.
+kadssupport.com.	86400	IN	NS	nebula.dns-parking.com.
+== SOA
+kadssupport.com.	3600	IN	SOA	aurora.dns-parking.com. dns.hostinger.com. 2026111201 10000 2400 604800 600
+== www
+www.kadssupport.com.	3789	IN	HINFO	"RFC8482" ""
+www.kadssupport.com.	300	IN	CNAME	www.kadssupport.com.cdn.hstgr.net.
+== mail
+mail.kadssupport.com.	3789	IN	HINFO	"RFC8482" ""
+== autodiscover
+autodiscover.kadssupport.com. 3789 IN	HINFO	"RFC8482" ""
+autodiscover.kadssupport.com. 300 IN	CNAME	autodiscover.mail.hostinger.com.
+== _dmarc
+_dmarc.kadssupport.com.	3789	IN	HINFO	"RFC8482" ""
+== zmail._domainkey
+zmail._domainkey.kadssupport.com. 3789 IN HINFO	"RFC8482" ""
+== TXT _dmarc
+_dmarc.kadssupport.com.	3600	IN	TXT	"v=DMARC1; p=none"
+== TXT zmail._domainkey
+== A/AAAA www (via CDN)
+www.kadssupport.com.	295	IN	CNAME	www.kadssupport.com.cdn.hstgr.net.
+www.kadssupport.com.cdn.hstgr.net. 60 IN A	195.200.9.169
+www.kadssupport.com.cdn.hstgr.net. 60 IN A	91.108.103.208
