@@ -29,6 +29,10 @@ export const home = {
   },
   /** AI-generated (Runway, 11 Nov 2026), shown without a label at KADS's request */
   serviceImage: ai("accommodation-hallway.jpg", "A welcoming hallway with trainers by the door, a jacket on a hook and keys in a small bowl", 1600, 1200, "home"),
+  serviceCardImages: {
+    employment: ai("service-training.jpg", "A learner's hands sanding a piece of wood at a workbench in a training workshop", 1600, 700, "home"),
+    advice: ai("service-support.jpg", "A support worker and a young person seen from behind, chatting on a park bench", 1600, 700, "home"),
+  },
   independenceImage: ai("cooking-skills.jpg", "Hands chopping vegetables in a homely kitchen, with a recipe card and a notebook on the worktop", 1200, 1600, "home"),
   intro: {
     eyebrow: "Who we are",

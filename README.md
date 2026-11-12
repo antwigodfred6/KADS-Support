@@ -100,6 +100,24 @@ The current site's stock photos have an **unknown licence** and are not used. Ev
 
 Use only photos the client owns or has licensed, and get consent for anyone identifiable. Put files in `public/images/`; `next/image` optimises them.
 
+## Partner logos
+
+The homepage "Working together" section lists partners from `content/shared.ts`:
+
+- **`partnerOrganisations`**: named organisations (Spear, City Harvest, West London Alliance, London Councils, National Citizen Service). Each card links to the organisation's official website and shows its **name until a logo is added**.
+- **`partnerServices`**: general services (colleges, police, children's social services, YOT, CAMHS, Connexions). These stay as **text only**: NHS, police and council branding can't be used by outside providers to show a partnership.
+
+**Only add a logo after the organisation has given written permission.** Then:
+
+1. Save the file they supply in `public/partners/` (SVG preferred, otherwise PNG with a transparent background), e.g. `public/partners/london-councils.svg`.
+2. Add it to that organisation's entry, with the file's real width and height:
+   ```ts
+   { name: "London Councils", ..., logo: { src: "/partners/london-councils.svg", width: 240, height: 60 } },
+   ```
+3. Keep a copy of the permission email.
+
+Logos show in greyscale and turn to full colour on hover, so a mix of brands sits together neatly.
+
 ## Contact form
 
 The form sends through KADS Support's existing **Zoho Mail (EU)** mailbox over authenticated SMTP (`lib/mailer.ts`, using nodemailer). **It is switched off until the settings below are added in Vercel.** Until then, visitors are told plainly that online messages aren't switched on and are shown the phone number and email. **It never shows a fake success.**

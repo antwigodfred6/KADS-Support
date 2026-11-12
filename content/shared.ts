@@ -93,21 +93,48 @@ export const journey: { step: string; title: string; body: string }[] = [
   },
 ];
 
-export const partners: Flagged<string[]> = {
+export type PartnerOrganisation = {
+  name: string;
+  /** What the organisation does, in a few words */
+  description: string;
+  /** Official website (checked 12 Nov 2026) */
+  url: string;
+  /**
+   * Logo: ONLY add once the organisation has given written permission.
+   * Put the file they supply in public/partners/ and fill in src/width/height.
+   */
+  logo?: { src: string; width: number; height: number };
+  note?: string;
+};
+
+/**
+ * Partners confirmed by KADS (11 Nov 2026). Named organisations can show a logo
+ * once permission is given; until then a styled name card is shown.
+ */
+export const partnerOrganisations: PartnerOrganisation[] = [
+  { name: "Spear", description: "Employment programme", url: "https://www.spear.org.uk/" },
+  { name: "City Harvest", description: "Food charity", url: "https://cityharvest.org.uk/" },
+  { name: "West London Alliance", description: "West London boroughs working together", url: "https://wla.london/" },
+  { name: "London Councils", description: "London local government", url: "https://www.londoncouncils.gov.uk/" },
+  {
+    name: "National Citizen Service",
+    description: "Youth programme",
+    url: "https://www.gov.uk/government/organisations/national-citizen-service",
+    // KADS confirmed on 12 Nov 2026 to keep NCS listed.
+  },
+];
+
+/** Services KADS works alongside: shown as text only (no logos: NHS, police and council branding is restricted). */
+export const partnerServices: Flagged<string[]> = {
   status: "verified",
-  note: "From the old homepage. Confirm which are current, formal partnerships and approved to be named.",
+  // KADS confirmed on 12 Nov 2026 to keep Connexions listed.
   source: "/ (Our Partners)",
   value: [
-    "Spear (employment programme)",
-    "City Harvest",
-    "West London Alliance",
-    "London Councils",
     "Local colleges",
     "Police",
     "Children's social services",
     "Youth Offending Teams (YOT)",
     "CAMHS",
-    "National Citizen Service",
     "Connexions",
   ],
 };

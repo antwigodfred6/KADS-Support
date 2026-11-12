@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Phone } from "lucide-react";
 import { ArchFrame } from "@/components/art/arch-frame";
 import { IconBadge } from "@/components/brand/icon";
 import { LogoMark } from "@/components/brand/logo";
@@ -8,7 +9,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { ArrowLink, ContentFlag, Eyebrow, Section } from "@/components/sections/primitives";
 import { Button } from "@/components/ui/button";
 import { home } from "@/content/pages";
-import { journey, partners, services, values } from "@/content/shared";
+import { journey, partnerOrganisations, partnerServices, services, values } from "@/content/shared";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
@@ -161,6 +162,14 @@ function Services() {
                 {featured && (
                   <ArchFrame scene="doorKey" image={home.serviceImage} sizes="(min-width: 1024px) 40vw, 90vw" className="mb-8 aspect-[5/4] w-full max-w-md transition-transform duration-500 group-hover:scale-[1.02] lg:aspect-[16/11]" />
                 )}
+                {!featured && s.slug !== "accommodation" && (
+                  <ArchFrame
+                    image={home.serviceCardImages[s.slug]}
+                    shape="card"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="-mx-7 -mt-7 mb-6 aspect-[16/7] rounded-none md:-mx-9 md:-mt-9 [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-(--ease-out-soft) group-hover:[&_img]:scale-[1.03]"
+                  />
+                )}
                 <span className={cn("font-display text-sm font-semibold tracking-[0.14em]", featured ? "text-orange" : "text-teal-600")}>
                   0{i + 1}
                 </span>
@@ -288,12 +297,45 @@ function Partners() {
           <p className="mt-5 text-slate">{copy.body}</p>
         </Reveal>
         <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
-          <p className="font-display font-semibold text-ink">
-            We work alongside organisations including:
-            <ContentFlag status={partners.status} note={partners.note} />
+          <h3 className="font-display text-lg font-semibold text-ink">Organisations we work alongside</h3>
+          {/* Logo-ready: a card shows the partner's logo once permission is given (see README), otherwise its name */}
+          <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {partnerOrganisations.map((org) => (
+              <li key={org.name}>
+                <a
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full min-h-28 flex-col justify-between rounded-(--radius-card) border border-line bg-white p-4 transition-[border-color,box-shadow,transform] duration-300 ease-(--ease-out-soft) hover:-translate-y-0.5 hover:border-transparent hover:shadow-lift"
+                >
+                  {org.logo ? (
+                    <Image
+                      src={org.logo.src}
+                      alt={org.name}
+                      width={org.logo.width}
+                      height={org.logo.height}
+                      sizes="160px"
+                      className="h-10 w-auto max-w-full object-contain object-left grayscale transition group-hover:grayscale-0"
+                    />
+                  ) : (
+                    <span className="font-display text-[1.02rem] leading-tight font-bold text-ink">{org.name}</span>
+                  )}
+                  <span className="mt-3 flex items-end justify-between gap-2 text-sm text-slate">
+                    <span>{org.description}</span>
+                    <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-teal-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+                {org.note ? <ContentFlag status="confirm" note={org.note} className="mt-1.5 ml-0" /> : null}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 font-display font-semibold text-ink">
+            We also work closely with:
+            {partnerServices.note ? <ContentFlag status="confirm" note={partnerServices.note} /> : null}
           </p>
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {partners.value.map((p) => (
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {partnerServices.value.map((p) => (
               <li key={p} className="rounded-full border border-line bg-white px-4 py-2 text-[0.95rem] text-ink">
                 {p}
               </li>
