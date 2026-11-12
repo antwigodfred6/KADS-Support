@@ -397,6 +397,15 @@ export const about = {
       body: "Doreen is a qualified, registered social worker with extensive experience of both residential units and community services, working with young people living in semi-independent accommodation.",
     },
   } satisfies Flagged<{ name: string; role: string; body: string }>,
+  // Wording supplied by KADS on 12 Nov 2026.
+  policies: {
+    title: "Policies and procedures",
+    body: [
+      "KADS Support has comprehensive, up-to-date policies and procedures for all staff to work alongside, to safeguard every young person we accommodate.",
+      "We have robust safer recruitment and whistleblowing policies and procedures in place.",
+    ],
+    highlights: ["Safeguarding", "Safer recruitment", "Whistleblowing"],
+  },
 };
 
 export const referrals = {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Megaphone, ShieldCheck, UserCheck } from "lucide-react";
 import { LogoMark } from "@/components/brand/logo";
 import { Reveal } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -20,7 +21,7 @@ export const metadata = pageMetadata({
 });
 
 export default function AboutPage() {
-  const { hero, manager } = about;
+  const { hero, manager, policies } = about;
   return (
     <>
       <HeroSplit eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "About us", href: routes.about }]} scene="circle" image={hero.image}>
@@ -73,6 +74,41 @@ export default function AboutPage() {
             <p className="mt-4 text-lead text-slate">{manager.value.body}</p>
           </Reveal>
         </div>
+      </Section>
+
+      <Section tone="deep" labelledBy="policies-title" className="py-16 md:py-24">
+        <Reveal className="relative grid gap-8 overflow-hidden rounded-[28px] bg-white p-8 md:p-12 lg:grid-cols-12 lg:items-center">
+          <div aria-hidden="true" className="drift drift-b absolute -top-20 -right-20 size-64 rounded-full bg-mist" />
+          <div className="relative lg:col-span-1">
+            <span className="pulse-ring grid size-14 place-items-center rounded-full bg-teal-600 text-paper">
+              <ShieldCheck aria-hidden="true" className="size-7" strokeWidth={1.75} />
+            </span>
+          </div>
+          <div className="relative lg:col-span-7">
+            <h2 id="policies-title" className="text-h2">
+              <TextReveal text={policies.title} />
+            </h2>
+            <div className="mt-4 space-y-3 text-lead text-slate">
+              {policies.body.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            <ArrowLink href={routes.safeguarding} className="mt-6">
+              Safeguarding information
+            </ArrowLink>
+          </div>
+          <ul className="relative grid gap-3 lg:col-span-4">
+            {policies.highlights.map((h, i) => {
+              const Icon = [ShieldCheck, UserCheck, Megaphone][i] ?? ShieldCheck;
+              return (
+                <li key={h} className="flex items-center gap-4 rounded-(--radius-card) border border-line bg-paper px-5 py-4 font-display font-semibold text-ink">
+                  <Icon aria-hidden="true" className="size-5 shrink-0 text-teal-600" />
+                  {h}
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
       </Section>
 
       <Section labelledBy="referrals-title">
