@@ -61,7 +61,7 @@ type BaseProps = {
 };
 
 /** Split: copy left, arched illustration right. */
-export function HeroSplit({ eyebrow, title, lead, trail, scene, children }: BaseProps & { scene: SceneName }) {
+export function HeroSplit({ eyebrow, title, lead, trail, scene, image, children }: BaseProps & { scene: SceneName; image?: SiteImage }) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden pt-8 pb-16 md:pb-24">
       <div className="container-site grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
@@ -76,7 +76,7 @@ export function HeroSplit({ eyebrow, title, lead, trail, scene, children }: Base
           <p className="animate-rise mt-6 max-w-xl text-lead text-slate [animation-delay:180ms]">{lead}</p>
           {children && <div className="animate-rise mt-9 [animation-delay:240ms]">{children}</div>}
         </div>
-        <ArchFrame scene={scene} animate priority className="mx-auto aspect-[4/5] w-full max-w-sm lg:max-w-md" />
+        <ArchFrame scene={scene} image={image} sizes="(min-width: 1024px) 35vw, 90vw" animate priority className="mx-auto aspect-[4/5] w-full max-w-sm lg:max-w-md" />
       </div>
     </section>
   );

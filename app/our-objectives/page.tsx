@@ -61,7 +61,7 @@ export default function ObjectivesPage() {
             </div>
           </Reveal>
           <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
-            <ArchFrame scene="house" className="mx-auto aspect-[4/5] w-full max-w-sm" />
+            <ArchFrame scene="house" image={approach.image} sizes="(min-width: 1024px) 35vw, 90vw" className="mx-auto aspect-[4/5] w-full max-w-sm" />
           </Reveal>
         </div>
       </Section>

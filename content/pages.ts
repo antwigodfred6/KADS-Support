@@ -372,6 +372,7 @@ export const objectives = {
   ],
   approach: {
     title: "A holistic approach",
+    image: ai("holistic-planner.jpg", "Two people's hands planning a week together in a colourful planner, with tea and fruit on the table", 1200, 1600, "about"),
     body: [
       "We make sure each young person's practical, physical, intellectual, social and cultural needs are met.",
       "Staff maintain a high quality of support by working alongside each young person's professional team, following KADS Support's policies and procedures.",
@@ -385,6 +386,7 @@ export const about = {
     title: "A safe, nurturing start to adult life.",
     lead: "KADS Support is a private provider offering a safe, therapeutic, nurturing and empowering environment for young people aged 16 and over.",
     source: "/about-dacs/",
+    image: ai("about-cooking-together.jpg", "A support worker and a young person seen from behind, cooking together in a warm kitchen", 1200, 1600, "about"),
   },
   manager: {
     status: "verified",
@@ -395,10 +397,6 @@ export const about = {
       body: "Doreen is a qualified, registered social worker with extensive experience of both residential units and community services, working with young people living in semi-independent accommodation.",
     },
   } satisfies Flagged<{ name: string; role: string; body: string }>,
-  policies: {
-    title: "Policies and procedures",
-    body: "We have comprehensive, up-to-date policies and procedures for all staff, designed to safeguard every young person we accommodate. These include robust safer recruitment and whistleblowing policies.",
-  },
 };
 
 export const referrals = {

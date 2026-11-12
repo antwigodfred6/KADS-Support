@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
 import { LogoMark } from "@/components/brand/logo";
 import { Reveal } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -20,10 +19,10 @@ export const metadata = pageMetadata({
 });
 
 export default function AboutPage() {
-  const { hero, manager, policies } = about;
+  const { hero, manager } = about;
   return (
     <>
-      <HeroSplit eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "About us", href: routes.about }]} scene="circle">
+      <HeroSplit eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} trail={[{ label: "About us", href: routes.about }]} scene="circle" image={hero.image}>
         <p className="text-slate">
           Supporting young people since {site.established.value}.
           <ContentFlag status={site.established.status} note={site.established.note} />
@@ -73,25 +72,6 @@ export default function AboutPage() {
             <p className="mt-4 text-lead text-slate">{manager.value.body}</p>
           </Reveal>
         </div>
-      </Section>
-
-      <Section tone="deep" labelledBy="policies-title" className="py-16 md:py-24">
-        <Reveal className="grid gap-8 rounded-[28px] bg-white p-8 md:p-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-1">
-            <span className="grid size-14 place-items-center rounded-full bg-mist text-teal-600">
-              <ShieldCheck aria-hidden="true" className="size-7" strokeWidth={1.75} />
-            </span>
-          </div>
-          <div className="lg:col-span-7">
-            <h2 id="policies-title" className="text-h3">
-              {policies.title}
-            </h2>
-            <p className="mt-3 text-slate">{policies.body}</p>
-          </div>
-          <div className="lg:col-span-4 lg:text-right">
-            <ArrowLink href={routes.safeguarding}>Safeguarding information</ArrowLink>
-          </div>
-        </Reveal>
       </Section>
 
       <Section labelledBy="referrals-title">
