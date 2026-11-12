@@ -1,26 +1,16 @@
 import Link from "next/link";
-import { ContentFlag, Eyebrow } from "@/components/sections/primitives";
+import { Eyebrow } from "@/components/sections/primitives";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
 
-/*
- * DRAFT for KADS to approve (prepared 12 Nov 2026).
- * It describes what this website actually does (checked in the code and on the
- * preview: no cookies, no analytics, fonts served from our own site, contact
- * form sent by email). It deliberately makes no claims we can't check.
- *
- * KADS to confirm before this goes live, then remove `noindex` and add the page to app/sitemap.ts:
- *  - ICO registration number (add it under "Who we are", if registered)
- *  - who handles data protection questions (named person or role)
- *  - how long enquiry emails are kept (the "How long we keep it" wording)
- *  - which Zoho data centre the mailbox uses (EU or US) for "Who we share it with"
- */
+// Approved by KADS on 12 Nov 2026. Describes what this website actually does
+// (no cookies, no analytics, contact form sent by email). Review it if the site
+// starts collecting anything new, and at least once a year.
 export const metadata = pageMetadata({
   title: "Privacy policy",
   description: "How KADS Support collects and uses personal information sent through this website.",
   path: routes.privacy,
-  noindex: true,
 });
 
 const UPDATED = "12 November 2026";
@@ -33,10 +23,6 @@ export default function PrivacyPage() {
         <Eyebrow>Legal</Eyebrow>
         <h1 id="page-title" className="text-h1">
           Privacy policy
-          <ContentFlag
-            status="confirm"
-            note="Draft for KADS to approve: ICO registration number, data protection contact, how long enquiries are kept, and the Zoho data centre."
-          />
         </h1>
         <p className="mt-4 text-slate">Last updated {UPDATED}</p>
 

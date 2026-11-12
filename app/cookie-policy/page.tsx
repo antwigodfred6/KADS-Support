@@ -1,22 +1,20 @@
 import Link from "next/link";
-import { ContentFlag, Eyebrow } from "@/components/sections/primitives";
+import { Eyebrow } from "@/components/sections/primitives";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
 
 /*
- * DRAFT for KADS to approve (prepared 12 Nov 2026).
+ * Approved by KADS on 12 Nov 2026.
  * Checked on the preview on 12 Nov 2026: no page sets a cookie, nothing is saved
  * in browser storage, and no third-party scripts or fonts are loaded.
  * If analytics or any embed (maps, video, social) is ever added, this page must
  * be updated and a consent banner added BEFORE it goes live.
- * Once approved: remove `noindex` and add the page to app/sitemap.ts.
  */
 export const metadata = pageMetadata({
   title: "Cookie policy",
   description: "How the KADS Support website uses cookies: it doesn't set any.",
   path: routes.cookies,
-  noindex: true,
 });
 
 const UPDATED = "12 November 2026";
@@ -28,7 +26,6 @@ export default function CookiesPage() {
         <Eyebrow>Legal</Eyebrow>
         <h1 id="page-title" className="text-h1">
           Cookie policy
-          <ContentFlag status="confirm" note="Draft for KADS to approve." />
         </h1>
         <p className="mt-4 text-slate">Last updated {UPDATED}</p>
 
