@@ -36,7 +36,8 @@ export function Logo({
       width={LOGO.width}
       height={LOGO.height}
       priority={priority}
-      sizes="160px"
+      // Shown at most ~88px tall (≈78px wide); 2x screens get the 256px file
+      sizes="88px"
       className={cn("h-14 w-auto", className)}
     />
   );
@@ -47,10 +48,13 @@ export function LogoMark({
   tone = "light",
   className,
   decorative = true,
+  sizes = "(min-width: 768px) 480px, 320px",
 }: {
   tone?: "light" | "dark";
   className?: string;
   decorative?: boolean;
+  /** Pass the real display width for small uses, so a smaller file is sent */
+  sizes?: string;
 }) {
   return (
     <Image
@@ -59,7 +63,7 @@ export function LogoMark({
       aria-hidden={decorative || undefined}
       width={MARK.width}
       height={MARK.height}
-      sizes="(min-width: 768px) 480px, 320px"
+      sizes={sizes}
       className={cn("w-auto", className)}
     />
   );

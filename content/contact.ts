@@ -62,11 +62,11 @@ export const contactFaqs: { q: string; a: string }[] = [
   },
   {
     q: "I need help. Is there someone I can talk to?",
-    a: "Yes. Call us or send a message using the form on this page. If you need help urgently, use one of the helplines listed, or call 999 in an emergency.",
+    a: "Yes. Call or email us. If you need help urgently, use one of the helplines listed, or call 999 in an emergency.",
   },
   {
     q: "I want to get involved. How can I help?",
-    a: "We'd love to hear from companies and individuals who want to help young people unlock their potential. Call us or choose 'Partnership or getting involved' in the form.",
+    a: "We'd love to hear from companies and individuals who want to help young people unlock their potential. Call or email us and tell us how you'd like to help.",
   },
 ];
 

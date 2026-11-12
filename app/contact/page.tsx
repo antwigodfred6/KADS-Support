@@ -1,4 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { isDeliveryConfigured } from "@/lib/mailer";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow, Section } from "@/components/sections/primitives";
@@ -15,6 +17,8 @@ export const metadata = pageMetadata({
 });
 
 export default function ContactPage() {
+  // The form appears only once Zoho delivery is set up in Vercel (README "Switching it on").
+  const formOn = isDeliveryConfigured();
   return (
     <>
       <section aria-labelledby="page-title" className="relative">
@@ -30,7 +34,7 @@ export default function ContactPage() {
                 Get in touch.
               </h1>
               <p className="animate-rise mt-6 text-lead text-on-dark-muted [animation-delay:140ms]">
-                Have a question, or want to talk about a referral? Call, email or send us a message.
+                Have a question, or want to talk about a referral? {formOn ? "Call, email or send us a message." : "Call or email us."}
               </p>
 
               <ul className="animate-rise mt-10 space-y-6 [animation-delay:200ms]">
@@ -74,10 +78,47 @@ export default function ContactPage() {
           {/* Form on paper */}
           <div className="bg-paper">
             <div className="mx-auto max-w-2xl px-[clamp(1rem,0.4rem+2.6vw,2.5rem)] py-14 md:py-20 lg:mr-auto lg:pl-14">
-              <h2 className="text-h2">Send a message</h2>
-              <div className="mt-8">
-                <ContactForm />
-              </div>
+              {formOn ? (
+                <>
+                  <h2 className="text-h2">Send a message</h2>
+                  <div className="mt-8">
+                    <ContactForm />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-h2">The quickest way to reach us</h2>
+                  <p className="mt-5 text-lead text-slate">
+                    Call us to talk things through, or email us and we&rsquo;ll get back to you. If you&rsquo;re a professional making a
+                    referral, a phone call is the best place to start.
+                  </p>
+                  <div className="mt-9 grid max-w-md gap-4">
+                    <a
+                      href={site.phone.href}
+                      className="group rounded-(--radius-card) border border-line bg-white p-6 transition-[transform,box-shadow] duration-300 ease-(--ease-out-soft) hover:-translate-y-1 hover:shadow-lift"
+                    >
+                      <Phone aria-hidden="true" className="size-7 text-teal-600" strokeWidth={1.75} />
+                      <span className="mt-4 block text-sm text-slate">Call</span>
+                      <span className="block font-display text-h3 font-bold text-ink">{site.phone.display}</span>
+                    </a>
+                    <a
+                      href={site.email.href}
+                      className="group rounded-(--radius-card) border border-line bg-white p-6 transition-[transform,box-shadow] duration-300 ease-(--ease-out-soft) hover:-translate-y-1 hover:shadow-lift"
+                    >
+                      <Mail aria-hidden="true" className="size-7 text-teal-600" strokeWidth={1.75} />
+                      <span className="mt-4 block text-sm text-slate">Email</span>
+                      <span className="block font-display text-h3 font-bold break-words text-ink">{site.email.display}</span>
+                    </a>
+                  </div>
+                  <p className="mt-8 text-slate">
+                    Please don&rsquo;t email sensitive details about a young person. We&rsquo;ll agree a secure way to share them when we
+                    speak.
+                  </p>
+                  <Button asChild variant="outline" size="lg" className="mt-8">
+                    <a href="#helplines">Need help urgently? See helplines</a>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>

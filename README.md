@@ -120,6 +120,8 @@ How it behaves:
 - If Zoho can't be reached, the visitor is told their message was **not** sent, and what they typed is kept. Logs record only the error code, never names, emails or message text.
 - Anti-spam: honeypot field, minimum fill time and a basic per-IP rate limit. Cloudflare Turnstile is a recommended addition before launch.
 
+Until Zoho is switched on, the Contact page doesn't show the form at all: it shows the phone number and email address instead, so nobody fills in a form that can't be sent. Once the variables below are set and the site is redeployed, the form appears automatically.
+
 ### Switching it on (needs the client's Zoho admin)
 
 1. In **Zoho Mail**, choose the mailbox that will send the email (e.g. `info@` or a dedicated `website@kadssupport.com`).

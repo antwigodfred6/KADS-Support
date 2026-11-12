@@ -92,6 +92,32 @@ Tested end to end through the real form on a local production build, pointed at 
 
 **Not yet tested:** a real send through Zoho. This needs the client's app password in Vercel (see README "Switching it on").
 
+## Pre-launch QA pass (12 Nov 2026, local production build)
+
+After the motion, imagery and content changes of 11–12 Nov.
+
+**Crawl of all 11 pages:** every page returns 200, has one `<h1>`, a title, a description, `lang="en-GB"`, a canonical URL and a share image. No duplicate IDs. Every image has alt text. All 25 internal links (including `#helplines` and other in-page anchors) work. `sitemap.xml`, `robots.txt`, the share image and icons return 200; unknown URLs return 404.
+
+**Lighthouse 12 (mobile unless noted):**
+
+| Page | Performance | Accessibility | Best practices | SEO* |
+|---|---|---|---|---|
+| Home | 90–91 (desktop 99) | 100 | 100 | 69 |
+| Accommodation | 91 (desktop 98) | 100 | 100 | 69 |
+| About | 93 (desktop 99) | 100 | 100 | 69 |
+| Contact | 95 (desktop 100) | 100 | 100 | 69 |
+
+Layout shift (CLS) is 0 on every page.
+
+\*SEO is 69 only because `robots.txt` blocks all crawling until launch (`ALLOW_INDEXING` unset). It is the only failing SEO check.
+
+**Fixed in this pass:**
+- Inner pages had no share image (`og:image`), because a page's own Open Graph settings replaced the site-wide ones. The image is now set in `pageMetadata`, so every page has it.
+- Mobile homepage: the hero photo's arch reveal started fully hidden, which delayed when the browser counted it as shown. It now starts partly open. Mobile performance went from 84 to 90–91, and LCP from 4.5 s to about 3.5 s.
+- The header and footer logo, and the small logo in the homepage badge, were sending larger files than needed. Their `sizes` now match how big they're shown.
+
+**Left as is:** Lighthouse also flags some unused and legacy JavaScript from the framework and the animation library. These are small, and changing them isn't worth the risk before launch.
+
 ## Bugs found and fixed during QA
 
 1. Homepage had no `<title>`, because `pageMetadata()` passed `title: undefined`
@@ -111,9 +137,9 @@ KADS confirmed all flagged wording, and those items are now `verified` with no r
 
 | Item | Where |
 |---|---|
-| **Ofsted registration status**: the site makes no claim either way | (none) |
+| **Ofsted registration status**. **Deferred by KADS (12 Nov 2026)**: the site makes no claim either way | (none) |
 | Interior photos for the Hounslow, Isleworth and Stanwell homes | Accommodation |
-| Zoho app password and the recipient inbox(es) for the contact form | Vercel env vars (README) |
+| Zoho app password and recipient inbox for the contact form. **Deferred by KADS (12 Nov 2026)**: until set, the Contact page shows phone and email instead of the form | Vercel env vars (README) |
 | Vector version of the logo (optional; the site uses the original PNG artwork) | Print and very large uses |
 
 ## Outstanding: technical, before launch

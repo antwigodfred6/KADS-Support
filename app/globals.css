@@ -214,8 +214,10 @@
 /* CSS-only entrance animations for above-the-fold content.
    They run before JavaScript hydrates, so nothing is ever blank. */
 @keyframes arch-reveal {
+  /* Starts partly open (not fully hidden) so the browser counts the hero
+     photo as shown straight away: a fully clipped start delayed LCP on mobile. */
   from {
-    clip-path: inset(100% 0 0 0 round 999px 999px 14px 14px);
+    clip-path: inset(42% 0 0 0 round 999px 999px 14px 14px);
   }
   to {
     clip-path: inset(0 0 0 0 round 999px 999px 14px 14px);

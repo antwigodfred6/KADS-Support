@@ -83,6 +83,18 @@ export function buildEnquiryEmail(input: ContactInput) {
   return { subject, text, html };
 }
 
+/**
+ * True when the contact form can actually deliver a message. The Contact page
+ * shows the form only when this is true; otherwise it shows phone and email,
+ * so nobody fills in a form that can't be sent.
+ */
+export function isDeliveryConfigured(): boolean {
+  const mode = process.env.CONTACT_DELIVERY ?? "none";
+  if (mode === "log") return process.env.NODE_ENV !== "production";
+  if (mode === "zoho") return zohoConfig() !== null;
+  return false;
+}
+
 export async function deliverEnquiry(input: ContactInput): Promise<DeliveryResult> {
   const mode = process.env.CONTACT_DELIVERY ?? "none";
 

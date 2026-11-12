@@ -92,7 +92,7 @@ function Hero() {
           <ArchFrame scene="doorway" image={home.hero.image} sizes="(min-width: 1024px) 40vw, 90vw" animate priority className="aspect-[4/5] w-full" />
           <div aria-hidden="true" className="animate-rise absolute -bottom-6 -left-4 [animation-delay:600ms] sm:-left-8">
             <div className="float flex items-center gap-3 rounded-full bg-white py-3 pr-5 pl-3 shadow-lift">
-              <LogoMark className="h-9" />
+              <LogoMark className="h-9" sizes="48px" />
               <span className="font-display text-sm font-semibold text-ink">A personalised plan for every young person</span>
               <span className="pulse-ring ml-1 size-2.5 shrink-0 rounded-full bg-orange" />
             </div>

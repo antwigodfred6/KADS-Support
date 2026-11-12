@@ -64,7 +64,7 @@ for h in www mail autodiscover _dmarc zmail._domainkey; do echo "== $h"; dig +sh
 1. Deploy to the **separate** Vercel project (see README). Use the `*.vercel.app` preview URL.
 2. On the preview, check: every page, mobile layouts, contact form behaviour, `robots.txt` (should block all on preview), redirects (`/our-services/` → `/accommodation` etc.), and that unconfirmed content has been resolved.
 3. Client sign-off in writing (email is fine).
-4. Set **production** environment variables in Vercel: `NEXT_PUBLIC_SITE_URL=https://kadssupport.com`, `NEXT_PUBLIC_SHOW_CONTENT_FLAGS=false`, `ALLOW_INDEXING=true`, and a working `CONTACT_DELIVERY`, once a provider is approved. Redeploy.
+4. Set **production** environment variables in Vercel: `NEXT_PUBLIC_SITE_URL=https://kadssupport.com`, `NEXT_PUBLIC_SHOW_CONTENT_FLAGS=false`, `ALLOW_INDEXING=true`. Redeploy. The Zoho contact form settings are optional at launch: KADS deferred them on 12 Nov 2026, and until they're set the Contact page shows phone and email instead of the form.
 
 ## 6. Prepare the rollback plan
 

@@ -26,8 +26,10 @@ export function pageMetadata({
       url: path,
       title: title ? `${title} | ${site.name}` : site.name,
       description,
+      // A page-level openGraph replaces the layout's, so the shared image (app/opengraph-image.tsx) is named here too.
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${site.name}: supported accommodation and support for young people` }],
     },
-    twitter: { card: "summary_large_image" },
+    twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
     robots: noindex ? { index: false, follow: true } : undefined,
   };
 }
