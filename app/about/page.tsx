@@ -10,6 +10,7 @@ import { values } from "@/content/shared";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "About us",
@@ -34,7 +35,7 @@ export default function AboutPage() {
           <div className="lg:col-span-4">
             <Eyebrow>What we stand for</Eyebrow>
             <h2 id="values-title" className="text-h2">
-              Four core beliefs.
+              <TextReveal text="Four core beliefs." />
             </h2>
             <ArrowLink href={routes.objectives} className="mt-6">
               Read our objectives
@@ -79,7 +80,7 @@ export default function AboutPage() {
           <div className="lg:col-span-7">
             <Eyebrow>Referrals &amp; admissions</Eyebrow>
             <h2 id="referrals-title" className="text-h2">
-              A smooth, considered move.
+              <TextReveal text="A smooth, considered move." />
             </h2>
             <p className="mt-5 text-lead text-slate">
               We know moving can be unsettling and stressful for a young person, so we aim to keep the transition as smooth as possible.{" "}

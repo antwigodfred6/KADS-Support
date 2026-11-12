@@ -6,6 +6,7 @@ import { ArrowLink, Eyebrow, Section } from "@/components/sections/primitives";
 import { objectives } from "@/content/pages";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "Our objectives: ethos and values",
@@ -24,7 +25,7 @@ export default function ObjectivesPage() {
         <Reveal className="max-w-2xl">
           <Eyebrow>Core objectives</Eyebrow>
           <h2 id="objectives-title" className="text-h2">
-            Eight commitments to every young person.
+            <TextReveal text="Eight commitments to every young person." />
           </h2>
         </Reveal>
         {/* Numbered editorial list: deliberately different from the icon cards used on service pages */}
@@ -48,7 +49,7 @@ export default function ObjectivesPage() {
           <Reveal className="lg:col-span-6">
             <Eyebrow>How our staff help</Eyebrow>
             <h2 id="approach-title" className="text-h2">
-              {approach.title}
+              <TextReveal text={approach.title} />
             </h2>
             <div className="mt-6 space-y-4 text-lead text-slate">
               {approach.body.map((p) => (

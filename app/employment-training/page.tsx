@@ -8,6 +8,7 @@ import { RelatedServices } from "@/components/sections/related-services";
 import { employment } from "@/content/pages";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "Employment & training",
@@ -32,14 +33,15 @@ export default function EmploymentPage() {
         <Reveal className="max-w-2xl">
           <Eyebrow>Training</Eyebrow>
           <h2 id="training-title" className="text-h2">
-            Learning that builds on itself.
+            <TextReveal text="Learning that builds on itself." />
           </h2>
           <p className="mt-5 text-lead text-slate">Each step lays the ground for the next, from the essentials to skills that lead to work.</p>
         </Reveal>
 
         {/* Pathway: connected cards with a running line */}
         <ol className="relative mt-14 grid gap-5 lg:grid-cols-3">
-          <span aria-hidden="true" className="absolute top-0 bottom-0 left-6 w-px bg-teal-400/40 lg:top-6 lg:right-0 lg:bottom-auto lg:left-0 lg:h-px lg:w-auto" />
+          <span aria-hidden="true" className="absolute top-0 bottom-0 left-6 w-px bg-teal-400/40 lg:hidden" />
+          <span aria-hidden="true" className="grow-x absolute top-6 right-0 left-0 hidden h-0.5 bg-gradient-to-r from-teal-400/40 via-teal-400 to-orange lg:block" />
           {training.map((t, i) => (
             <Reveal as="li" key={t.title} delay={i * 0.1} className="relative pl-16 lg:pt-16 lg:pl-0">
               <span className="absolute top-0 left-0 grid size-12 place-items-center rounded-full bg-ink font-display font-bold text-paper lg:top-0">
@@ -72,7 +74,7 @@ export default function EmploymentPage() {
             <Reveal>
               <Eyebrow>Employment</Eyebrow>
               <h2 id="employment-title" className="text-h2">
-                Routes into work.
+                <TextReveal text="Routes into work." />
               </h2>
             </Reveal>
             <RevealGroup className="mt-10 space-y-4">
@@ -96,7 +98,7 @@ export default function EmploymentPage() {
       <Section tone="mist" labelledBy="staff-title" className="py-16 md:py-20 lg:py-24">
         <Reveal className="grid gap-6 lg:grid-cols-12">
           <h2 id="staff-title" className="text-h2 lg:col-span-4">
-            {staff.title}
+            <TextReveal text={staff.title} />
           </h2>
           <p className="text-lead text-slate lg:col-span-7 lg:col-start-6">{staff.body}</p>
         </Reveal>

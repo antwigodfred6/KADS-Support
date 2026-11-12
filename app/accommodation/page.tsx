@@ -14,6 +14,7 @@ import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
 import { cn } from "cn";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "Supported accommodation for young people",
@@ -35,7 +36,7 @@ export default function AccommodationPage() {
       <Section labelledBy="types-title" className="pt-4 md:pt-8 lg:pt-8">
         <Reveal className="max-w-2xl">
           <h2 id="types-title" className="text-h2">
-            The accommodation we offer.
+            <TextReveal text="The accommodation we offer." />
           </h2>
         </Reveal>
         <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3">
@@ -67,7 +68,7 @@ export default function AccommodationPage() {
           <Reveal className="lg:sticky lg:top-36 lg:col-span-5 lg:self-start">
             <Eyebrow>{homes.eyebrow}</Eyebrow>
             <h2 id="homes-title" className="text-h2">
-              {homes.title}
+              <TextReveal text={homes.title} />
             </h2>
             <p className="mt-5 text-lead text-slate">
               {homes.lead}
@@ -138,7 +139,7 @@ export default function AccommodationPage() {
         <Reveal className="max-w-2xl">
           <Eyebrow>Living with us</Eyebrow>
           <h2 id="features-title" className="text-h2">
-            What every young person has.
+            <TextReveal text="What every young person has." />
           </h2>
         </Reveal>
         {/* Bento grid: varied card sizes so the six features don't read as a template */}
@@ -185,7 +186,7 @@ export default function AccommodationPage() {
                 Respite and emergencies
               </p>
               <h2 id="emergency-title" className="mt-6 text-h2 text-paper">
-                {emergency.title}
+                <TextReveal text={emergency.title} />
               </h2>
               <p className="mt-5 text-lead text-on-dark-muted">{emergency.body}</p>
             </div>

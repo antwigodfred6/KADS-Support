@@ -6,6 +6,7 @@ import { contactFaqs, helplines } from "@/content/contact";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "Contact us",
@@ -87,7 +88,7 @@ export default function ContactPage() {
           <Reveal className="lg:col-span-4">
             <Eyebrow>Need help now?</Eyebrow>
             <h2 id="helplines-title" className="text-h2">
-              Urgent helplines.
+              <TextReveal text="Urgent helplines." />
             </h2>
             <p className="mt-5 text-slate">If you need to talk to someone straight away, these free and confidential services can help.</p>
           </Reveal>
@@ -118,7 +119,7 @@ export default function ContactPage() {
           <Reveal className="lg:col-span-4">
             <Eyebrow>Questions</Eyebrow>
             <h2 id="faq-title" className="text-h2">
-              Frequently asked.
+              <TextReveal text="Frequently asked." />
             </h2>
           </Reveal>
           <div className="space-y-3 lg:col-span-7 lg:col-start-6">

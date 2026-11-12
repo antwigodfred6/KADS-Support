@@ -9,6 +9,7 @@ import { referrals } from "@/content/pages";
 import { site } from "@/content/site";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "Making a referral",
@@ -42,7 +43,7 @@ export default function ReferralsPage() {
         <Reveal className="max-w-2xl">
           <Eyebrow>The process</Eyebrow>
           <h2 id="steps-title" className="text-h2">
-            Four steps from first call to moving in.
+            <TextReveal text="Four steps from first call to moving in." />
           </h2>
         </Reveal>
         <ol className="mt-14 space-y-4">

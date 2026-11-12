@@ -9,6 +9,7 @@ import { advice } from "@/content/pages";
 import { values } from "@/content/shared";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
+import { TextReveal } from "@/components/motion/text-reveal";
 
 export const metadata = pageMetadata({
   title: "Advice & support: counselling and mentoring",
@@ -73,7 +74,7 @@ export default function AdvicePage() {
           <Reveal className="lg:col-span-7">
             <Eyebrow onDark>Mentoring · ages 16–22</Eyebrow>
             <h2 id="mentoring-title" className="text-h2">
-              {mentoring.title}
+              <TextReveal text={mentoring.title} />
             </h2>
             <p className="mt-5 text-lead text-on-dark-muted">{mentoring.lead}</p>
             <p className="mt-4 text-on-dark-muted">{mentoring.intro}</p>
@@ -97,7 +98,7 @@ export default function AdvicePage() {
         <Reveal className="max-w-2xl">
           <Eyebrow>We believe</Eyebrow>
           <h2 id="believe-title" className="text-h2">
-            What guides our advice.
+            <TextReveal text="What guides our advice." />
           </h2>
         </Reveal>
         <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
