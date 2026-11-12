@@ -99,17 +99,12 @@ export type PartnerOrganisation = {
   description: string;
   /** Official website (checked 12 Nov 2026) */
   url: string;
-  /**
-   * Logo: ONLY add once the organisation has given written permission.
-   * Put the file they supply in public/partners/ and fill in src/width/height.
-   */
-  logo?: { src: string; width: number; height: number };
   note?: string;
 };
 
 /**
- * Partners confirmed by KADS (11 Nov 2026). Named organisations can show a logo
- * once permission is given; until then a styled name card is shown.
+ * Partners confirmed by KADS (11 Nov 2026). Shown as name cards: KADS decided
+ * on 12 Nov 2026 that partner logos aren't needed.
  */
 export const partnerOrganisations: PartnerOrganisation[] = [
   { name: "Spear", description: "Employment programme", url: "https://www.spear.org.uk/" },

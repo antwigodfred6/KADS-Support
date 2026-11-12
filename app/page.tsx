@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Phone } from "lucide-react";
 import { ArchFrame } from "@/components/art/arch-frame";
@@ -306,7 +305,6 @@ function Partners() {
         </Reveal>
         <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
           <h3 className="font-display text-lg font-semibold text-ink">Organisations we work alongside</h3>
-          {/* Logo-ready: a card shows the partner's logo once permission is given (see README), otherwise its name */}
           <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {partnerOrganisations.map((org) => (
               <li key={org.name}>
@@ -316,18 +314,7 @@ function Partners() {
                   rel="noopener noreferrer"
                   className="group flex h-full min-h-28 flex-col justify-between rounded-(--radius-card) border border-line bg-white p-4 transition-[border-color,box-shadow,transform] duration-300 ease-(--ease-out-soft) hover:-translate-y-0.5 hover:border-transparent hover:shadow-lift"
                 >
-                  {org.logo ? (
-                    <Image
-                      src={org.logo.src}
-                      alt={org.name}
-                      width={org.logo.width}
-                      height={org.logo.height}
-                      sizes="160px"
-                      className="h-10 w-auto max-w-full object-contain object-left grayscale transition group-hover:grayscale-0"
-                    />
-                  ) : (
-                    <span className="font-display text-[1.02rem] leading-tight font-bold text-ink">{org.name}</span>
-                  )}
+                  <span className="font-display text-[1.02rem] leading-tight font-bold text-ink">{org.name}</span>
                   <span className="mt-3 flex items-end justify-between gap-2 text-sm text-slate">
                     <span>{org.description}</span>
                     <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-teal-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

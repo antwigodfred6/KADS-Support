@@ -100,23 +100,14 @@ The current site's stock photos have an **unknown licence** and are not used. Ev
 
 Use only photos the client owns or has licensed, and get consent for anyone identifiable. Put files in `public/images/`; `next/image` optimises them.
 
-## Partner logos
+## Partners
 
 The homepage "Working together" section lists partners from `content/shared.ts`:
 
-- **`partnerOrganisations`**: named organisations (Spear, City Harvest, West London Alliance, London Councils, National Citizen Service). Each card links to the organisation's official website and shows its **name until a logo is added**.
-- **`partnerServices`**: general services (colleges, police, children's social services, YOT, CAMHS, Connexions). These stay as **text only**: NHS, police and council branding can't be used by outside providers to show a partnership.
+- **`partnerOrganisations`**: named organisations (Spear, City Harvest, West London Alliance, London Councils, National Citizen Service). Each card shows the name and links to the organisation's official website.
+- **`partnerServices`**: general services (colleges, police, children's social services, YOT, CAMHS, Connexions), shown as text.
 
-**Only add a logo after the organisation has given written permission.** Then:
-
-1. Save the file they supply in `public/partners/` (SVG preferred, otherwise PNG with a transparent background), e.g. `public/partners/london-councils.svg`.
-2. Add it to that organisation's entry, with the file's real width and height:
-   ```ts
-   { name: "London Councils", ..., logo: { src: "/partners/london-councils.svg", width: 240, height: 60 } },
-   ```
-3. Keep a copy of the permission email.
-
-Logos show in greyscale and turn to full colour on hover, so a mix of brands sits together neatly.
+KADS decided on 12 Nov 2026 that partner logos aren't needed, so the cards show names only.
 
 ## Contact form
 
