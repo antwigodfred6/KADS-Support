@@ -81,7 +81,7 @@ function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <ArchFrame scene="doorway" animate priority className="aspect-[4/5] w-full" />
+          <ArchFrame scene="doorway" image={home.hero.image} sizes="(min-width: 1024px) 40vw, 90vw" animate priority className="aspect-[4/5] w-full" />
           <div
             aria-hidden="true"
             className="animate-rise absolute -bottom-6 -left-4 flex items-center gap-3 rounded-full bg-white py-3 pr-5 pl-3 shadow-lift [animation-delay:600ms] sm:-left-8"
@@ -159,7 +159,7 @@ function Services() {
                 )}
               >
                 {featured && (
-                  <ArchFrame scene="doorKey" className="mb-8 aspect-[5/4] w-full max-w-md transition-transform duration-500 group-hover:scale-[1.02] lg:aspect-[16/11]" />
+                  <ArchFrame scene="doorKey" image={home.serviceImage} sizes="(min-width: 1024px) 40vw, 90vw" className="mb-8 aspect-[5/4] w-full max-w-md transition-transform duration-500 group-hover:scale-[1.02] lg:aspect-[16/11]" />
                 )}
                 <span className={cn("font-display text-sm font-semibold tracking-[0.14em]", featured ? "text-orange" : "text-teal-600")}>
                   0{i + 1}
@@ -246,7 +246,7 @@ function Independence() {
     <Section labelledBy="independence-title">
       <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal className="order-2 lg:order-1">
-          <ArchFrame scene="steps" shape="rounded" className="aspect-[5/4] w-full lg:aspect-[4/5]" />
+          <ArchFrame scene="steps" image={home.independenceImage} sizes="(min-width: 1024px) 45vw, 90vw" shape="rounded" className="aspect-[5/4] w-full lg:aspect-[4/5]" />
         </Reveal>
         <Reveal className="order-1 lg:order-2">
           <Eyebrow>Building independence</Eyebrow>

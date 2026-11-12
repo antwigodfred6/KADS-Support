@@ -25,7 +25,11 @@ export const home = {
     title: "A steady place to find your own path.",
     lead: "We support young people with a personalised plan to build confidence, learn life skills and make the move into independence and adulthood.",
     source: "/ (hero quote)",
+    image: ai("hero-window.jpg", "A young person seen from behind at a bright bedroom window in morning light, looking out over rooftops", 1200, 1600, "home"),
   },
+  /** AI-generated (Runway, 11 Nov 2026), shown without a label at KADS's request */
+  serviceImage: ai("accommodation-hallway.jpg", "A welcoming hallway with trainers by the door, a jacket on a hook and keys in a small bowl", 1600, 1200, "home"),
+  independenceImage: ai("cooking-skills.jpg", "Hands chopping vegetables in a homely kitchen, with a recipe card and a notebook on the worktop", 1200, 1600, "home"),
   intro: {
     eyebrow: "Who we are",
     title: "Helping young people live independently.",
