@@ -26,7 +26,7 @@ export const values: { title: string; body: string; icon: IconName }[] = [
 ];
 
 export type ServiceSummary = {
-  slug: "accommodation" | "employment" | "advice";
+  slug: "accommodation" | "employment" | "advice" | "parentChild";
   title: string;
   href: string;
   summary: string;
@@ -66,6 +66,15 @@ export const services: ServiceSummary[] = [
       "One-to-one counselling and a mentoring programme that help young people work through what's holding them back and plan ahead.",
     points: ["1:1 counselling", "Mentoring (ages 16–22)", "Advocacy"],
     linkLabel: "Explore advice & support",
+  },
+  {
+    slug: "parentChild",
+    title: "Parent & Child",
+    href: routes.parentChild,
+    icon: "baby",
+    summary: "Supported accommodation where a young parent can live with their child, with help to grow in confidence and independence.",
+    points: ["Parent-and-child units", "Personalised support", "Skills for family life"],
+    linkLabel: "Explore parent & child",
   },
 ];
 

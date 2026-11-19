@@ -1,4 +1,5 @@
 import {
+  Baby,
   BookOpen,
   Briefcase,
   Clock,
@@ -28,6 +29,7 @@ import { cn } from "cn";
 import type { IconName } from "@/content/types";
 
 const icons: Record<IconName, LucideIcon> = {
+  baby: Baby,
   home: Home,
   key: Key,
   shield: Shield,

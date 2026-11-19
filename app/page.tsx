@@ -151,19 +151,22 @@ function Services() {
             <TextReveal text="Support that fits around each young person." />
           </h2>
         </div>
-        <p className="max-w-sm text-slate">Three connected services, so a young person can find a home, learn and get guidance in one place.</p>
+        <p className="max-w-sm text-slate">Four connected services, so a young person, or a young parent and their child, can find a home, learn and get guidance in one place.</p>
       </Reveal>
 
-      <RevealGroup className="mt-12 grid gap-5 lg:grid-cols-2 lg:grid-rows-[1fr_1fr]">
+      <RevealGroup className="mt-12 grid gap-5 lg:grid-cols-2 lg:grid-rows-[1fr_1fr_auto]">
         {services.map((s, i) => {
           const featured = i === 0;
+          // Fourth card runs full width under the others, with its photo on the left
+          const wide = i === 3;
           return (
-            <RevealItem key={s.slug} className={cn(featured && "lg:row-span-2")}>
+            <RevealItem key={s.slug} className={cn(featured && "lg:row-span-2", wide && "lg:col-span-2")}>
               <Link
                 href={s.href}
                 className={cn(
                   "group relative flex h-full flex-col overflow-hidden rounded-(--radius-card) p-7 transition-[transform,box-shadow] duration-300 ease-(--ease-out-soft) hover:-translate-y-1 hover:shadow-lift md:p-9",
-                  featured ? "on-dark bg-navy text-paper" : "border border-line bg-white"
+                  featured ? "on-dark bg-navy text-paper" : "border border-line bg-white",
+                  wide && "lg:grid lg:grid-cols-2 lg:gap-x-9 lg:py-0"
                 )}
               >
                 {featured && (
@@ -174,10 +177,13 @@ function Services() {
                     image={home.serviceCardImages[s.slug]}
                     shape="card"
                     sizes="(min-width: 1024px) 40vw, 100vw"
-                    className="-mx-7 -mt-7 mb-6 aspect-[16/7] rounded-none md:-mx-9 md:-mt-9 [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-(--ease-out-soft) group-hover:[&_img]:scale-[1.03]"
+                    className={cn(
+                      "-mx-7 -mt-7 mb-6 aspect-[16/7] rounded-none md:-mx-9 md:-mt-9 [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-(--ease-out-soft) group-hover:[&_img]:scale-[1.03]",
+                      wide && "lg:row-span-6 lg:my-0 lg:mr-0 lg:aspect-auto lg:h-full lg:min-h-80"
+                    )}
                   />
                 )}
-                <span className={cn("font-display text-sm font-semibold tracking-[0.14em]", featured ? "text-orange" : "text-teal-600")}>
+                <span className={cn("font-display text-sm font-semibold tracking-[0.14em]", featured ? "text-orange" : "text-teal-600", wide && "lg:pt-9")}>
                   0{i + 1}
                 </span>
                 <span className="mt-3 flex items-start justify-between gap-4">
@@ -198,7 +204,8 @@ function Services() {
                 <span
                   className={cn(
                     "mt-auto inline-flex items-center gap-2 pt-8 font-display font-semibold",
-                    featured ? "text-paper" : "text-teal-600"
+                    featured ? "text-paper" : "text-teal-600",
+                    wide && "lg:pb-9"
                   )}
                 >
                   {s.linkLabel}

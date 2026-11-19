@@ -8,6 +8,7 @@ export const routes = {
   accommodation: "/accommodation",
   employment: "/employment-training",
   advice: "/advice-support",
+  parentChild: "/parent-and-child",
   objectives: "/our-objectives",
   about: "/about",
   referrals: "/referrals",

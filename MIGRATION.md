@@ -77,6 +77,17 @@ A read-only snapshot of the public records taken on 12 Nov 2026 is in `docs/dns-
 
 ## 7. Update only the necessary web records
 
+**Status 12 Nov 2026:** KADS signed off. Production settings are set in Vercel, and both domains are added to the `kads-support` project (`www` redirects to `kadssupport.com`). Vercel reports them as "misconfigured" until the DNS below is changed. Values Vercel gave on 12 Nov 2026 (re-check in Vercel → Settings → Domains on the day):
+
+| Record in Hostinger | Type | Change to |
+|---|---|---|
+| `@` | A | `216.198.79.1` and `64.29.17.1` (replace the current Hostinger A records) |
+| `@` | AAAA | delete both Hostinger AAAA records |
+| `www` | CNAME | `66649f7af23ec508.vercel-dns-017.com` (replace `www.kadssupport.com.cdn.hstgr.net`) |
+
+Turn off Hostinger's CDN for this domain first if hPanel won't let you edit `@`. Leave MX, SPF (TXT), `_dmarc`, `autodiscover` and the nameservers as they are.
+
+
 1. In Vercel → Project → **Settings → Domains**, add `kadssupport.com` and `www.kadssupport.com`. Vercel shows the exact records to create (typically an **A record** for the apex and a **CNAME** for `www`; use the values Vercel displays at the time). Choose which hostname is primary (recommended: `kadssupport.com`, with `www` redirecting to it).
 2. In Hostinger DNS, **edit only**:
    - `@` A record(s) → Vercel's value (remove the old Hostinger A records for `@` only)

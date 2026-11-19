@@ -23,6 +23,7 @@ export type Flagged<T> = {
 
 export type IconName =
   | "home"
+  | "baby"
   | "key"
   | "shield"
   | "sofa"

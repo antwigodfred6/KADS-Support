@@ -32,6 +32,13 @@ export const home = {
   serviceCardImages: {
     employment: ai("service-training.jpg", "A learner's hands sanding a piece of wood at a workbench in a training workshop", 1600, 700, "home"),
     advice: ai("service-support.jpg", "A support worker and a young person seen from behind, chatting on a park bench", 1600, 700, "home"),
+    // Real photo supplied by KADS (11 Nov 2026)
+    parentChild: {
+      src: "/images/homes/hounslow-parent-child-room.jpg",
+      width: 676,
+      height: 676,
+      alt: "A parent-and-child room in our Hounslow home: a double bed beside a white baby cot",
+    } satisfies SiteImage,
   },
   independenceImage: ai("cooking-skills.jpg", "Hands chopping vegetables in a homely kitchen, with a recipe card and a notebook on the worktop", 1200, 1600, "home"),
   intro: {
@@ -173,11 +180,11 @@ export const accommodation = {
         offer: "Studio flat",
         // Real photos supplied by KADS (11 Nov 2026). Skipped: a shot of the front door (letterbox,
         // intercom, fire notice) and two near-duplicates; a paper on the counter is cropped out.
+        // Kitchen-sink photo removed at the owner's request (19 Nov 2026).
         photos: [
           { src: "/images/homes/isleworth-bed.jpg", width: 720, height: 720, caption: "Sleeping area", alt: "A double bed with red and cream paisley bedding in the Isleworth studio flat" },
           { src: "/images/homes/isleworth-living.jpg", width: 720, height: 720, caption: "Living area", alt: "A black leather two-seater sofa beside a white chest of drawers on a wooden floor in the Isleworth studio flat" },
           { src: "/images/homes/isleworth-kitchen.jpg", width: 720, height: 720, caption: "Kitchen", alt: "The studio flat's kitchen: a gas hob with saucepans, a built-in oven and a washing machine" },
-          { src: "/images/homes/isleworth-kitchen-sink.jpg", width: 720, height: 720, caption: "Kitchen sink", alt: "A sink and draining rack under a window, with wooden kitchen cupboards and a black worktop" },
         ],
       },
       {
@@ -437,4 +444,63 @@ export const referrals = {
       icon: "key" as IconName,
     },
   ],
+};
+
+/**
+ * Parent & Child: added at the site owner's request (19 Nov 2026).
+ * Facts used: the Hounslow home has 3 parent-and-child units (owner, 11 Nov 2026),
+ * and the real photo of a parent-and-child room. Everything else is KADS's general
+ * support, applied to parents. Client to confirm the wording, ages and what's included.
+ */
+export const parentChild = {
+  hero: {
+    eyebrow: "Parent & Child",
+    title: "A safe start for young parents and their children.",
+    lead: "Supported accommodation where a young parent can live with their child, with support to grow in confidence as a parent and to build an independent life.",
+    image: {
+      src: "/images/homes/hounslow-parent-child-room.jpg",
+      width: 676,
+      height: 676,
+      alt: "A parent-and-child room in our Hounslow home: a double bed with grey paisley bedding beside a white baby cot",
+    } satisfies SiteImage,
+  },
+  offer: {
+    eyebrow: "What we offer",
+    title: "Room to be a family.",
+    lead: "Our parent-and-child units give a young parent and their child a room of their own, in a home where staff are close by to offer guidance and support.",
+    points: [
+      {
+        title: "A room for you and your child",
+        icon: "baby" as IconName,
+        body: "Your own room with space for your child to sleep beside you, and shared spaces to cook, eat and relax.",
+      },
+      {
+        title: "Support from our team",
+        icon: "heart-handshake" as IconName,
+        body: "A personalised support plan, built with you, so you get the right help at the right time.",
+      },
+      {
+        title: "Skills for family life",
+        icon: "sparkles" as IconName,
+        body: "Guidance with cooking, budgeting and running a home, and help finding information about health, benefits and housing.",
+      },
+      {
+        title: "Looking ahead",
+        icon: "graduation-cap" as IconName,
+        body: "Encouragement and support to take up education, training or work, and to plan your move into a home of your own.",
+      },
+    ],
+    flag: {
+      value: true,
+      status: "confirm",
+      note: "New wording for the new site. Client to confirm what parent-and-child support includes, the ages, and who can be referred.",
+    } satisfies Flagged<boolean>,
+  },
+  where: {
+    eyebrow: "Where",
+    title: "Three parent-and-child units in Hounslow.",
+    body: "Our parent-and-child units are in our home in the London Borough of Hounslow, close to local services.",
+    privacy:
+      "To protect the families who live with us, we don't publish the address. We share it with referring professionals as part of the referral process.",
+  },
 };

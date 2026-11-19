@@ -7,6 +7,7 @@ const indexable = [
   { path: routes.accommodation, priority: 0.9 },
   { path: routes.employment, priority: 0.8 },
   { path: routes.advice, priority: 0.8 },
+  { path: routes.parentChild, priority: 0.8 },
   { path: routes.referrals, priority: 0.8 },
   { path: routes.about, priority: 0.7 },
   { path: routes.objectives, priority: 0.6 },

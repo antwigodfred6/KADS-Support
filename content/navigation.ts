@@ -7,6 +7,7 @@ export const mainNav: NavItem[] = [
   { label: "Accommodation", href: routes.accommodation },
   { label: "Employment & Training", href: routes.employment },
   { label: "Advice & Support", href: routes.advice },
+  { label: "Parent & Child", href: routes.parentChild },
   {
     label: "About",
     children: [
@@ -23,6 +24,7 @@ export const footerNav = {
     { label: "Accommodation", href: routes.accommodation },
     { label: "Employment & Training", href: routes.employment },
     { label: "Advice & Support", href: routes.advice },
+    { label: "Parent & Child", href: routes.parentChild },
   ],
   organisation: [
     { label: "About us", href: routes.about },

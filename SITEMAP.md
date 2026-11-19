@@ -29,6 +29,7 @@ Clearer for users and search engines (e.g. `/accommodation` actually says accomm
 | Accommodation | `/accommodation` | `/our-services/` |
 | Employment & Training | `/employment-training` | (unchanged) |
 | Advice & Support | `/advice-support` | `/support-programs/` |
+| Parent & Child | `/parent-and-child` | (new, added 19 Nov 2026) |
 | Our Objectives | `/our-objectives` | (unchanged) |
 | About us | `/about` | `/about-dacs/` (and `/about` already redirects the other way today) |
 | Contact | `/contact` | (unchanged) |
