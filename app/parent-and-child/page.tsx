@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArchFrame } from "@/components/art/arch-frame";
+import Image from "next/image";
 import { IconBadge } from "@/components/brand/icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { TextReveal } from "@/components/motion/text-reveal";
@@ -50,29 +49,41 @@ export default function ParentChildPage() {
       </Section>
 
       <Section tone="deep" labelledBy="where-title">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-6">
             <Eyebrow>{where.eyebrow}</Eyebrow>
             <h2 id="where-title" className="text-h2">
               <TextReveal text={where.title} />
             </h2>
             <p className="mt-5 text-lead text-slate">{where.body}</p>
-            <p className="mt-6 rounded-(--radius-card) border-l-4 border-teal-600 bg-white p-5 text-slate">{where.privacy}</p>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+          </Reveal>
+          <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
+            <p className="rounded-(--radius-card) border-l-4 border-teal-600 bg-white p-5 text-slate">{where.privacy}</p>
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               <ArrowLink href={`${routes.accommodation}#homes`}>See all our homes</ArrowLink>
               <ArrowLink href={routes.referrals}>How referrals work</ArrowLink>
             </div>
           </Reveal>
-          <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
-            <ArchFrame image={hero.image} shape="arch" sizes="(min-width: 1024px) 35vw, 100vw" className="mx-auto aspect-[4/5] w-full max-w-md" />
-            <p className="mt-3 text-center text-sm text-slate">
-              A parent-and-child room in our Hounslow home.{" "}
-              <Link href={`${routes.accommodation}#homes`} className="font-semibold text-teal-600 underline underline-offset-4">
-                More photos
-              </Link>
-            </p>
-          </Reveal>
         </div>
+
+        <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-3">
+          {where.photos.map((ph) => (
+            <RevealItem key={ph.src}>
+              <a href={ph.src} target="_blank" rel="noopener" className="group block overflow-hidden rounded-(--radius-card) bg-paper">
+                <Image
+                  src={ph.src}
+                  alt={ph.alt}
+                  width={ph.width}
+                  height={ph.height}
+                  sizes="(min-width: 640px) 33vw, 100vw"
+                  className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-(--ease-out-soft) group-hover:scale-[1.03]"
+                />
+                <span className="sr-only"> (view larger photo, opens in a new tab)</span>
+              </a>
+              <p className="mt-2 text-center text-sm text-slate">{ph.caption}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </Section>
 
       <RelatedServices current="parentChild" />

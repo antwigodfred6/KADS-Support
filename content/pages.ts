@@ -502,5 +502,11 @@ export const parentChild = {
     body: "Our parent-and-child units are in our home in the London Borough of Hounslow, close to local services.",
     privacy:
       "To protect the families who live with us, we don't publish the address. We share it with referring professionals as part of the referral process.",
+    // Real photos supplied by KADS (19 Nov 2026). Metadata stripped. No people shown.
+    photos: [
+      { src: "/images/homes/hounslow-parent-child-1.jpg", width: 676, height: 1500, caption: "Parent-and-child room", alt: "A parent-and-child room: a double bed with grey paisley bedding, a white chest of drawers, and a white cot by the window" },
+      { src: "/images/homes/hounslow-parent-child-3.jpg", width: 899, height: 1599, caption: "Parent-and-child room", alt: "A parent-and-child room with a double bed in white bedding, a bedside table and a wooden cot in the corner" },
+      { src: "/images/homes/hounslow-parent-child-2.jpg", width: 1125, height: 1500, caption: "Bedroom", alt: "A bright bedroom with a tall white wardrobe, grey wood-effect floor and a bed with pink paisley bedding" },
+    ],
   },
 };
