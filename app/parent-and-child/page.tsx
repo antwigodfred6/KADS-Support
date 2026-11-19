@@ -76,6 +76,7 @@ export default function ParentChildPage() {
                   width={ph.width}
                   height={ph.height}
                   sizes="(min-width: 640px) 33vw, 100vw"
+                  style={"focus" in ph ? { objectPosition: ph.focus } : undefined}
                   className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-(--ease-out-soft) group-hover:scale-[1.03]"
                 />
                 <span className="sr-only"> (view larger photo, opens in a new tab)</span>
